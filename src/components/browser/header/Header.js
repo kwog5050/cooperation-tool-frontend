@@ -12,25 +12,41 @@ const Header = () => {
                 <Style.FlexBox>
                     <Style.H1>
                         <Link to={"/"}>
-                            <img src={browserImage.logo} alt="" />
+                            <img src={browserImage.logo} alt="리워디 로고" />
                         </Link>
                     </Style.H1>
 
                     <Style.Ul>
                         <li>
-                            <Link>
+                            <Link to={"/todaywork"}>
                                 서비스소개
-                                <img src={browserImage.arrow} alt="" />
+                                <img src={browserImage.arrow} alt="메뉴 화살표" />
                             </Link>
+
+                            <ol>
+                                <li><Link to={"/todaywork"}>오늘업무</Link></li>
+                                <li><Link to={"/live"}>LIVE</Link></li>
+                                <li><Link to={"/coin"}>보상</Link></li>
+                                <li><Link to={"/challenge"}>챌린지</Link></li>
+                                <li><Link to={"/party"}>파티</Link></li>
+                                <li><Link to={"/insight"}>인사이트</Link></li>
+                            </ol>
                         </li>
                         <li>
-                            <Link>가격안내</Link>
+                            <Link to={"/price"}>가격안내</Link>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={"/question/1"}>
                                 고객지원
-                                <img src={browserImage.arrow} alt="" />
+                                <img src={browserImage.arrow} alt="메뉴 화살표" />
                             </Link>
+
+                            <ol>
+                                <li><Link to={"/question/1"}>자주묻는질문</Link></li>
+                                <li><Link to={"/menual/start/1"}>사용자 메뉴얼</Link></li>
+                                <li><Link to={"/notice/1"}>공지사항</Link></li>
+                                <li><Link to={"/customer"}>고객센터</Link></li>
+                            </ol>
                         </li>
                         <li>
                             <Link>
@@ -40,7 +56,7 @@ const Header = () => {
                         <li>
                             <Link>
                                 무료체험
-                                <img src={browserImage.rewardyCharacter} alt="" />
+                                <img src={browserImage.rewardyCharacter} alt="리워디 캐릭터" />
                             </Link>
                         </li>
                     </Style.Ul>

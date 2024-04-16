@@ -6,6 +6,7 @@ export const Head = styled.header`
     left: 0;
     background-color: #fff;
     width: 100%;
+    z-index: 99;
 `
 
 export const FlexBox = styled.div`
@@ -24,8 +25,9 @@ export const Ul = styled.ul`
     display: flex;
     align-items: center;
     gap: 20px;
-    li{
-        a{
+    > li{
+        position: relative;
+        > a{
             display: flex;
             align-items: center;
             justify-content: center;
@@ -33,6 +35,35 @@ export const Ul = styled.ul`
             font-size: 16px;
             font-weight: 500;
             padding: 25px 10px;
+        }
+        &:hover{
+            ol{
+                display: flex;
+            }
+        }
+        ol{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 1px 1px 3px #00000066;
+            display: none;
+            li{
+                a{
+                    width: 100%;
+                    padding: 15px 15px;
+                    color: #999;
+                    &:hover{
+                        color: #000;
+                    }
+                }   
+            }
         }
     }
 `
