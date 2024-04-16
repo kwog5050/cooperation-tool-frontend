@@ -169,6 +169,10 @@ const Price = () => {
                     <h3>무엇을 도와드릴까요?</h3>
                     <Faq></Faq>
                 </div>
+
+                <div className="more">
+                    <Link to="">더 보기</Link>
+                </div>
             </Style.Faq>
         </>
     );

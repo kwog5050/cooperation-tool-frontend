@@ -14,8 +14,10 @@ import Price from 'pages/browser/price/Price';
 import Question from 'pages/browser/question/Question';
 import Notice from 'pages/browser/notice/Notice';
 import Customer from 'pages/browser/customer/Customer';
+import Sample from 'pages/browser/sample/Sample';
 
 import Menual from './menual/Menual';
+import NotFound from 'components/NotFound/NotFound';
 
 const Browser = () => {
     return (
@@ -37,6 +39,9 @@ const Browser = () => {
                     <Route path='/menual/*' element={<Menual />}></Route>
                     <Route path='/notice/:boardIndex' element={<Notice />}></Route>
                     <Route path='/customer' element={<Customer />}></Route>
+                    <Route path='/sample' element={<Sample />}></Route>
+
+                    <Route path='/*' element={<NotFound />}></Route>
                 </Routes>
             </main>
 

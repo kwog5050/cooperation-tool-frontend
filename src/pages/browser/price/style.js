@@ -335,4 +335,15 @@ export const Faq = styled.div`
         text-align: center;
         margin-bottom: 50px;
     }
+    .more{
+        text-align: center;
+        margin-top: 50px;
+        a{
+            padding: 20px 70px;
+            background-color: #000;
+            color: #fff;
+            border-radius: 50px;
+            font-size: 18px;
+        }
+    }
 `

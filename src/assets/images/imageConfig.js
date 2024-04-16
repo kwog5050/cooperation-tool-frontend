@@ -10,7 +10,6 @@ export const componentImages = {
     lastPage : require(COMPONENT_URL + "/last_page.png"),
     prev : require(COMPONENT_URL + "/prev.png"),
     next : require(COMPONENT_URL + "/next.png"),
-
     menualIcon01 : require(COMPONENT_URL + "/menual_icon01.png"),
     menualIcon02 : require(COMPONENT_URL + "/menual_icon02.png"),
     menualIcon03 : require(COMPONENT_URL + "/menual_icon03.png"),
@@ -23,15 +22,10 @@ export const componentImages = {
 }
 
 export const browserImage = {
-    // 헤더
     logo : require(BROWSER_URL + "/logo.png"),
     arrow : require(BROWSER_URL + "/arrow.png"),
     rewardyCharacter : require(BROWSER_URL + "/rewardy_character.gif"),
-
-    // 하단 무료체험
     experience : require(BROWSER_URL + "/experience.jpg"),
-
-    // 메인
     banner : require(BROWSER_URL + "/main/banner.jpg"),
     todaywork : require(BROWSER_URL + "/main/todaywork.png"),
     live : require(BROWSER_URL + "/main/live.png"),
@@ -48,8 +42,6 @@ export const browserImage = {
     imgTb : require(BROWSER_URL + "/main/img_ui_tb.png"),
     bgMobile : require(BROWSER_URL + "/main/bg_ui_mb.png"),
     imgMobile : require(BROWSER_URL + "/main/img_ui_mb.png"),
-
-    // 서비스소개
     todayworkImage01 : require(BROWSER_URL + "/service/todaywork01.png"),
     todayworkImage02 : require(BROWSER_URL + "/service/todaywork02.png"),
     todayworkImage03 : require(BROWSER_URL + "/service/todaywork03.png"),
@@ -57,7 +49,6 @@ export const browserImage = {
     todayworkImage05 : require(BROWSER_URL + "/service/todaywork05.png"),
     todayworkImage06 : require(BROWSER_URL + "/service/todaywork06.png"),
     todayworkImage07 : require(BROWSER_URL + "/service/todaywork07.png"),
-
     liveImage01 : require(BROWSER_URL + "/service/live01.png"),
     liveImage02 : require(BROWSER_URL + "/service/live02.png"),
     liveImage03 : require(BROWSER_URL + "/service/live03.png"),
@@ -65,19 +56,16 @@ export const browserImage = {
     liveImage05 : require(BROWSER_URL + "/service/live05.png"),
     liveImage06 : require(BROWSER_URL + "/service/live06.png"),
     liveImage07 : require(BROWSER_URL + "/service/live07.png"),
-
     coinImage01 : require(BROWSER_URL + "/service/coin01.png"),
     coinImage02 : require(BROWSER_URL + "/service/coin02.png"),
     coinImage03 : require(BROWSER_URL + "/service/coin03.png"),
     coinImage04 : require(BROWSER_URL + "/service/coin04.png"),
     coinImage05 : require(BROWSER_URL + "/service/coin05.png"),
-
     challengeImage01 : require(BROWSER_URL + "/service/challenge01.png"),
     challengeImage02 : require(BROWSER_URL + "/service/challenge02.png"),
     challengeImage03 : require(BROWSER_URL + "/service/challenge03.png"),
     challengeImage04 : require(BROWSER_URL + "/service/challenge04.png"),
     challengeImage05 : require(BROWSER_URL + "/service/challenge05.png"),
-
     partyImage01 : require(BROWSER_URL + "/service/party01.png"),
     partyImage02 : require(BROWSER_URL + "/service/party02.png"),
     partyImage03 : require(BROWSER_URL + "/service/party03.png"),
@@ -85,20 +73,21 @@ export const browserImage = {
     partyImage05 : require(BROWSER_URL + "/service/party05.png"),
     partyImage06 : require(BROWSER_URL + "/service/party06.png"),
     partyImage07 : require(BROWSER_URL + "/service/party07.png"),
-
     insightImage01 : require(BROWSER_URL + "/service/insight01.png"),
     insightImage02 : require(BROWSER_URL + "/service/insight02.png"),
     insightImage03 : require(BROWSER_URL + "/service/insight03.png"),
     insightImage04 : require(BROWSER_URL + "/service/insight04.png"),
-
-    // 가격안내
     event : require(BROWSER_URL + "/price/event.png"),
     priceArrow : require(BROWSER_URL + "/price/next_arrow.png"),
     priceCha01 : require(BROWSER_URL + "/price/price_cha_01.png"),
     priceCha02 : require(BROWSER_URL + "/price/price_cha_02.png"),
     enterprise : require(BROWSER_URL + "/price/enterprise.png"),
-
-    // 고객지원
     search : require(BROWSER_URL + "/customer/search.png"),
+    customerBg : require(BROWSER_URL + "/customer/bg.png"),
+    customerCall : require(BROWSER_URL + "/customer/call.png"),
+    customerHelp : require(BROWSER_URL + "/customer/help.png"),
+    customerMail : require(BROWSER_URL + "/customer/mail.png"),
+    customerArrow : require(BROWSER_URL + "/customer/arrow.png"),
+    sampleBanner : require(BROWSER_URL + "/sample/banner.png"),
 }
 

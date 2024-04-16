@@ -49,7 +49,7 @@ const Header = () => {
                             </ol>
                         </li>
                         <li>
-                            <Link>
+                            <Link to={"/sample"}>
                                 활용사례
                             </Link>
                         </li>
