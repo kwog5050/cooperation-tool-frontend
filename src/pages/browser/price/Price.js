@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { getFaq } from 'apis/browser/questionApi';
+
 import Faq from 'components/browser/faq/Faq';
+import Loading from 'components/loading/Loading';
 
 import { browserImage } from 'assets/images/imageConfig';
 
 import * as Style from './style';
 
 const Price = () => {
+    const [list, setList] = useState(null);
+
+    useEffect(() => {
+        if (list === null) {
+            getFaq({
+                boardIndex: 1,
+                searchText: null
+            }, setList);
+        }
+    }, [])
+
+    if (list === null) return <Loading></Loading>
+
     return (
         <>
             <Style.Membership>
@@ -39,7 +55,7 @@ const Price = () => {
                                 </div>
                             </div>
 
-                            <div className="event" style={{backgroundImage:`url(${browserImage.event})`}}>
+                            <div className="event" style={{ backgroundImage: `url(${browserImage.event})` }}>
                                 <p>4월 리워디 오픈 기념 신규 가입비 면제! 구성원 요금 1인당 100원!</p>
                                 <span>~2024.04.30까지</span>
                             </div>
@@ -78,7 +94,7 @@ const Price = () => {
                                 </div>
 
                                 <div className='bottom'>
-                                    <p>최종 결제 금액 <span>()</span></p>
+                                    <p>최종 결제 금액 <span>(VAT 별도)</span></p>
                                     <b>1,000원</b>
                                 </div>
                             </div>
@@ -167,11 +183,11 @@ const Price = () => {
             <Style.Faq>
                 <div className="wrap">
                     <h3>무엇을 도와드릴까요?</h3>
-                    <Faq></Faq>
+                    <Faq list={list.List}></Faq>
                 </div>
 
                 <div className="more">
-                    <Link to="">더 보기</Link>
+                    <Link to={"/question/1"}>더 보기</Link>
                 </div>
             </Style.Faq>
         </>

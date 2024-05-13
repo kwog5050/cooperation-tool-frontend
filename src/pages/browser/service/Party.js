@@ -10,7 +10,7 @@ import * as Style from './style';
 const Party = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#ff9f2d"}}>
+            <Style.Experience style={{ backgroundColor: "#ff9f2d" }}>
                 <h3>프로젝트 성공을 위한 첫 걸음</h3>
                 <p>
                     함께 프로젝트 하는 구성원과 파티를 만들고 프로젝트 진행 상황을 확인해 보세요. <br />
@@ -21,7 +21,7 @@ const Party = () => {
                 <img src={browserImage.partyImage01} alt="파티 예시" />
             </Style.Experience>
 
-            <Style.Container style={{backgroundColor:"#fdfaf5",paddingTop:"320px"}}>
+            <Style.Container style={{ backgroundColor: "#fdfaf5", paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -55,7 +55,7 @@ const Party = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -89,7 +89,7 @@ const Party = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

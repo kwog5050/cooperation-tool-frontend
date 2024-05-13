@@ -19,14 +19,20 @@ export const NotFound = styled.div`
     }
     h1{
         font-size: 24px;
+        line-height: 1.2;
         font-weight: bold;
+        strong{
+            color: red;
+        }
     }
     p{
         line-height: 2;
         font-size: 16px;
         margin-top: 20px;
         a{
+            font-size: 16px;
             line-height: 2;
+            text-decoration: underline;
         }
     }
     .buttons{

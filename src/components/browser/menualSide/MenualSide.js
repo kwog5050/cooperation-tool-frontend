@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import * as Style from './style';
 
-const MenualSide = ({list}) => {
+const MenualSide = ({ list }) => {
     return (
         <Style.Side>
             <ul>

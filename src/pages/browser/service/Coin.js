@@ -10,7 +10,7 @@ import * as Style from './style';
 const Coin = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#534f85"}}>
+            <Style.Experience style={{ backgroundColor: "#534f85" }}>
                 <h3>보상</h3>
                 <p>
                     적절한 보상으로 구성원의 사기를 북돋아 줍니다. <br />
@@ -21,7 +21,7 @@ const Coin = () => {
                 <img src={browserImage.coinImage01} alt="코인 예시" />
             </Style.Experience>
 
-            <Style.Container style={{backgroundColor:"#f3f6ff",paddingTop:"320px"}}>
+            <Style.Container style={{ backgroundColor: "#f3f6ff", paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -56,7 +56,7 @@ const Coin = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

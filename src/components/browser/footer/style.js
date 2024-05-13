@@ -29,4 +29,31 @@ export const Foot = styled.footer`
             font-weight: 500;
         }
     }
+    @media (max-width:900px) {
+        p{
+            flex-direction: column;
+            text-align: center;
+            span{
+                font-size: 0px;
+            }
+        }
+        b{
+            display: block;
+            text-align: center;
+        }
+        .nav{
+            justify-content: center;
+        }
+    }
+    @media (max-width:480px) {
+        p{
+            font-size: 12px;
+        }
+        b{
+            font-size: 12px;
+        }
+        .nav{
+            margin-top: 20px;
+        }
+    }
 `

@@ -10,7 +10,7 @@ import * as Style from './style';
 const Live = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#43cfb3"}}>
+            <Style.Experience style={{ backgroundColor: "#43cfb3" }}>
                 <h3>회사 전체 업무, 일정이 한눈에 보입니다.</h3>
                 <p>
                     팀원별 오늘할일, 완료한 챌린지, 일정을 확인하세요. <br />
@@ -21,7 +21,7 @@ const Live = () => {
                 <img src={browserImage.liveImage01} alt="라이브 예시" />
             </Style.Experience>
 
-            <Style.Container style={{backgroundColor:"#fffbf3",paddingTop:"320px"}}>
+            <Style.Container style={{ backgroundColor: "#fffbf3", paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -56,7 +56,7 @@ const Live = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -90,7 +90,7 @@ const Live = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

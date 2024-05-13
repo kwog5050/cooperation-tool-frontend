@@ -20,4 +20,7 @@ export const Side = styled.aside`
             }
         }
     }
+    @media (max-width:1200px) {
+        display: none;
+    }
 `

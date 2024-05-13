@@ -67,6 +67,26 @@ export const Banner = styled.div`
             }
         }
     }
+    @media (max-width:800px) {
+        padding: 50px 0px;
+        ul{
+            flex-direction: column;
+            li{
+                width: 100%;
+            }
+        }
+    }
+    @media (max-width: 650px) {
+        h3{
+            font-size: 24px;
+        }
+        .wrap > p{
+            font-size: 14px;
+        }
+        ul{
+            margin-top: 30px;
+        }
+    }
 `
 
 export const Help = styled.div`
@@ -96,6 +116,31 @@ export const Help = styled.div`
             }
         }
     }
+    @media (max-width: 1000px) {
+        .flex{
+            flex-direction: column;
+            gap: 20px;
+            p{
+                font-size: 18px;
+            }
+            .buttons{
+                gap: 10px;
+                flex-direction: column;
+                width: 100%;
+                button{
+                    width: 100%;
+                    background-color: #fff;
+                    border: 1px solid #eee;
+                    border-radius: 5px;
+                    padding: 15px 15px;
+                    justify-content: space-between;
+                    span{
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
 `
 
 export const Faq = styled.div`
@@ -115,6 +160,20 @@ export const Faq = styled.div`
             color: #fff;
             border-radius: 50px;
             font-size: 18px;
+        }
+    }
+    @media (max-width:1024px) {
+        padding-bottom: 50px;
+        h3{
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        .more{
+            margin-top: 30px;
+            a{
+                padding: 15px 50px;
+                font-size: 16px;
+            }
         }
     }
 `

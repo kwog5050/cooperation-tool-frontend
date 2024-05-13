@@ -35,7 +35,7 @@ const Notice = () => {
                     </li>
                 </ul>
 
-                <Paging></Paging>
+                {/* <Paging></Paging> */}
             </div>
         </Style.Container>
     );

@@ -10,7 +10,7 @@ import * as Style from './style';
 const Challenge = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#367ec9"}}>
+            <Style.Experience style={{ backgroundColor: "#367ec9" }}>
                 <h3>챌린지에 도전하면 팀원이 성장합니다.</h3>
                 <p>
                     직무, 자기계발, 문화, 신입사원 챌린지에 도전하세요. <br />
@@ -21,7 +21,7 @@ const Challenge = () => {
                 <img src={browserImage.challengeImage01} alt="챌린지 예시" />
             </Style.Experience>
 
-            <Style.Container style={{backgroundColor:"#e2f0ff",paddingTop:"320px"}}>
+            <Style.Container style={{ backgroundColor: "#e2f0ff", paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -55,7 +55,7 @@ const Challenge = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

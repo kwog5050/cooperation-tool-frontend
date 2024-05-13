@@ -10,7 +10,7 @@ import * as Style from './style';
 const Todaywork = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#39c9d2"}}>
+            <Style.Experience style={{ backgroundColor: "#39c9d2" }}>
                 <h3>오늘업무를 알아야 일의 순서가 보입니다.</h3>
                 <p>
                     오늘 할 일을 기록하고 공유하세요. <br />
@@ -21,7 +21,7 @@ const Todaywork = () => {
                 <img src={browserImage.todayworkImage01} alt="오늘업무 예시" />
             </Style.Experience>
 
-            <Style.Container style={{paddingTop:"320px"}}>
+            <Style.Container style={{ paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -38,7 +38,7 @@ const Todaywork = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -72,7 +72,7 @@ const Todaywork = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -106,7 +106,7 @@ const Todaywork = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

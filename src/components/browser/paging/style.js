@@ -18,7 +18,7 @@ export const PageNav = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-        button{
+        button, a{
             width: 40px;
             height: 40px;
             display: flex;
@@ -29,6 +29,17 @@ export const PageNav = styled.div`
         .on{
             background-color: #252525;
             color: #fff;
+        }
+    }
+    @media (max-width:480px) {
+        gap: 15px;
+        margin-top: 30px;
+        .paging{
+            button{
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
         }
     }
 `

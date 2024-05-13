@@ -10,7 +10,7 @@ const Start = () => {
     return (
         <Style.Container>
             <div className="wrap">
-                <MenualSide list={[{text : "리워디가 처음이라면?", url : "/menual/start/1", index : 1}]}></MenualSide>
+                <MenualSide list={[{ text: "리워디가 처음이라면?", url: "/menual/start/1", index: 1 }]}></MenualSide>
                 <div className="grid">
                     <div></div>
 
@@ -45,7 +45,7 @@ const Start = () => {
                                 <p>- 구성원들에게 초대메일을 발송하여 서비스를 시작합니다.</p>
                             </div>
 
-                            <img src={componentImages.menualCha01} alt="" />
+                            <img src={componentImages.menualCha01} alt="캐릭터" />
                         </div>
                     </div>
                 </div>

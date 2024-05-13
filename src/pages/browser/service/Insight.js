@@ -10,7 +10,7 @@ import * as Style from './style';
 const Insight = () => {
     return (
         <>
-            <Style.Experience style={{backgroundColor:"#fc6464"}}>
+            <Style.Experience style={{ backgroundColor: "#fc6464" }}>
                 <h3>순위 공개로 건강한 경쟁을 가능하게 합니다.</h3>
                 <p>
                     역량, 좋아요, 코인 등 리워디 서비스를 통해 획득한 점수를 공유할 수 있습니다. <br />
@@ -21,7 +21,7 @@ const Insight = () => {
                 <img src={browserImage.insightImage01} alt="인사이트 예시" />
             </Style.Experience>
 
-            <Style.Container style={{backgroundColor:"#fff8f8",paddingTop:"320px"}}>
+            <Style.Container style={{ backgroundColor: "#fff8f8", paddingTop: "320px" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">
@@ -55,7 +55,7 @@ const Insight = () => {
                 </div>
             </Style.Container>
 
-            <Style.Container style={{backgroundColor:"#f9fafb"}}>
+            <Style.Container style={{ backgroundColor: "#f9fafb" }}>
                 <div className="wrap">
                     <div className="flex">
                         <div className="content">

@@ -9,15 +9,19 @@
 @import url('./font.css');
 
 * {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
     vertical-align: top;
-    font-size: 14px;
+    font-size: 1.4rem;
     line-height: 1;
     letter-spacing: -1px;
     outline: 0px;
     /*outline: 1px solid black;*/
+}
+
+html {
+    font-size: 10px;
 }
 
 body {
@@ -26,17 +30,19 @@ body {
     overflow-y: auto;
 }
 
-body *::-webkit-scrollbar{
+body *::-webkit-scrollbar {
     width: 5px;
     height: 5px;
     background-color: #e0e0e0;
     border-radius: 5px;
 }
-body *::-webkit-scrollbar-thumb{
+
+body *::-webkit-scrollbar-thumb {
     background-color: #c5c5c5;
     border-radius: 5px;
 }
-body *::-webkit-scrollbar-track{
+
+body *::-webkit-scrollbar-track {
     border-radius: 5px;
 }
 
@@ -81,7 +87,7 @@ a {
 }
 
 .pc {
-    display: inline-block !important;
+    display: inherit !important;
 }
 
 .mobile {
@@ -133,12 +139,13 @@ button {
     cursor: pointer;
 }
 
-.pcimg{}
-.moimg{
+.pcimg {}
+
+.moimg {
     display: none;
 }
 
-.bg{
+.bg {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -148,15 +155,22 @@ button {
     display: none;
     z-index: -1;
 }
-.bg.on{
+
+.bg.on {
     display: block;
 }
 
-@media only screen and (min-width:100px) and (max-width:1300px) {
+@media only screen and (min-width:100px) and (max-width:1300px) {}
+
+@media only screen and (min-width:100px) and (max-width:1200px) {
+
+    html {
+        font-size: 9.5px;
+    }
 
     .wrap {
         width: 100%;
-        padding: 0px 15px;
+        padding: 0px 4%;
     }
 
     .pc {
@@ -169,25 +183,44 @@ button {
 
 }
 
-@media only screen and (min-width:100px) and (max-width:1200px) {
-
-}
-
 @media only screen and (min-width:100px) and (max-width:1024px) {
-    .pcimg{
+    .pcimg {
         display: none;
     }
-    .moimg{
+
+    .moimg {
         display: block;
     }
 }
 
-@media only screen and (min-width:100px) and (max-width:800px) {}
+@media only screen and (min-width:100px) and (max-width:800px) {
+    html {
+        font-size: 8px;
+    }
+}
 
 @media only screen and (min-width:100px) and (max-width:600px) {}
 
-html *{
-    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif !important;
+@media only screen and (min-width:100px) and (max-width:480px) {
+    html {
+        font-size: 7.5px;
+    }
+}
+
+@media only screen and (min-width:100px) and (max-width:360px) {
+    html {
+        font-size: 7px;
+    }
+}
+
+html {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif;
+}
+
+input,
+textarea,
+button {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Helvetica', Malgun Gothic, '맑은 고딕', 'Nanum Gothic', Nanum Gothic, '나눔고딕', Dotum, '돋움', Gulim, '굴림', sans-serif;
 }
 
 /* ############################################## */

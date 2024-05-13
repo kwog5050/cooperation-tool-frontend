@@ -13,7 +13,7 @@ const Nav = () => {
     useEffect(() => {
         switchMenu();
     }, [nav])
-    
+
 
     const switchMenu = () => {
         switch (loaction.pathname) {

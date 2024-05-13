@@ -13,13 +13,14 @@ export const FaqList = styled.div`
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                gap: 50px;
-                padding: 30px 20px;
+                gap: 5rem;
+                padding: 3rem 2rem;
                 cursor: pointer;
                 > p{
                     flex: 1;
-                    font-size: 18px;
+                    font-size: 1.8rem;
                     font-weight: 400;
+                    line-height: 1.2;
                 }
             }
             .a{
@@ -27,18 +28,61 @@ export const FaqList = styled.div`
                 align-items: start;
                 justify-content: space-between;
                 background-color: #f6f7f9;
-                gap: 50px;
-                padding: 50px 20px;
+                gap: 5rem;
+                padding: 0 2rem;
+                overflow: hidden;
+                transition: max-height .5s;
                 .content{
                     flex: 1;
+                    margin: 30px 0;
                     p{
-                        font-size: 16px;
+                        font-size: 1.6rem;
                         font-weight: 300;
                         line-height: 1.5;
+                        *{
+                            font-size: 1.6rem;
+                            line-height: 1.5;
+                        }
                         img{
                             display: block;
-                            margin-top: 20px;
+                            margin-top: 2rem;
                         }
+                    }
+                }
+                > img{
+                    margin: 30px 0;
+                }
+            }
+        }
+        .off{
+            .a{
+                max-height: 0 !important;
+            }
+        }
+    }
+    @media (max-width:900px) {
+        ul{
+            li{
+                .q{
+                    gap: 2rem;
+                    p{
+                        /* font-size: 14px; */
+                    }
+                    img{    
+                        &:first-child{
+                            width: 3.5rem;
+                        }
+                    }
+                }
+                .a{
+                    gap: 2rem;
+                    .content{
+                        p{
+                            /* font-size: 14px; */
+                        }
+                    }
+                    > img{
+                        width: 3.5rem;
                     }
                 }
             }

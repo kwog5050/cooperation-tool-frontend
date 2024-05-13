@@ -49,6 +49,9 @@ export const Container = styled.div`
                     flex: 1;
                     font-size: 18px;
                     font-weight: 400;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
                 }
                 .date{
                     width: 100px;
@@ -56,6 +59,70 @@ export const Container = styled.div`
                     font-size: 18px;
                     font-weight: 300;
                     color: #858585;
+                }
+            }
+        }
+    }
+    @media (max-width:800px) {
+        padding: 50px 0px;
+        h3{
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 30px;
+        }    
+        .title{
+            padding: 20px;
+            h4{
+                font-size: 14px;
+                &:first-child{
+                    width: 70px;
+                }
+                &:last-child{
+                    width: 100px;
+                }
+            }
+        }
+        ul{
+            li{
+                a{
+                    padding: 20px;
+                    .index{
+                        width: 70px;
+                        font-size: 14px;
+                    }
+                    > p{
+                        font-size: 14px;
+                    }
+                    .date{
+                        width: 100px;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 600px) {
+        .title{
+            justify-content: start;
+            gap: 0px;
+            padding: 20px 15px;
+            h4{
+                &:nth-child(2){
+                    flex: 1;
+                }
+                &:last-child{
+                    display: none;
+                }
+            }
+        }
+        ul{
+            li{
+                a{
+                    padding: 20px 15px;
+                    gap: 0px;
+                    .date{
+                        display: none;
+                    }
                 }
             }
         }

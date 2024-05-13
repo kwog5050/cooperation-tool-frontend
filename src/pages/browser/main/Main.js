@@ -9,7 +9,7 @@ import * as Style from './style.js';
 const Main = () => {
     return (
         <>
-            <Style.Banner style={{backgroundImage : `url(${browserImage.banner})`}}>
+            <Style.Banner style={{ backgroundImage: `url(${browserImage.banner})` }}>
                 <div className="wrap">
                     <div className="content">
                         <h2>
@@ -24,7 +24,10 @@ const Main = () => {
                             매일 성장하는 우리회사
                         </p>
 
-                        <button>무료 체험</button>
+                        <div className="buttons">
+                            <button>무료 체험</button>
+                            <button>접속하기</button>
+                        </div>
                     </div>
                 </div>
             </Style.Banner>
@@ -45,14 +48,16 @@ const Main = () => {
             </Style.Intro>
 
             <Style.Todaywork>
-                <h3>오늘업무</h3>
-                <h4>스스로, 적극적으로 일하는 구성원</h4>
-                <p>
-                    오늘 하루, 내가 해야 할 일만 잘 관리하면 <br />
-                    똑똑한 리워디가 알아서 나의 일과 <br />
-                    우리 동료의 일을 자연스럽게 연결해줍니다.
-                </p>
-                <img src={browserImage.todaywork} alt="오늘업무" />
+                <div className="wrap">
+                    <h3>오늘업무</h3>
+                    <h4>스스로, 적극적으로 일하는 구성원</h4>
+                    <p>
+                        오늘 하루, 내가 해야 할 일만 잘 관리하면 <br />
+                        똑똑한 리워디가 알아서 나의 일과 <br />
+                        우리 동료의 일을 자연스럽게 연결해줍니다.
+                    </p>
+                    <img src={browserImage.todaywork} alt="오늘업무" />
+                </div>
             </Style.Todaywork>
 
             <Style.Live>
@@ -105,7 +110,7 @@ const Main = () => {
                             <h3>타임라인</h3>
                             <h4>
                                 나의 하루 일과를 <br />
-                                투명하게 보여줍니다. 
+                                투명하게 보여줍니다.
                             </h4>
                             <p>
                                 출근부터 퇴근까지의 모든 일정을 타임라인에 표시합니다. <br />

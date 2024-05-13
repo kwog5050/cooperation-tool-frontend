@@ -41,4 +41,25 @@ export const Menu = styled.div`
             }
         }
     }
+    @media (max-width:1000px) {
+        overflow-x: scroll;
+        top: 64px;
+        &::-webkit-scrollbar{
+            display: none;
+        }
+        ul{
+            min-width: 1000px;
+            li{
+                height: 50px;
+                a{
+                    img{
+                        max-height: 18px;
+                    }
+                    span{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
 `

@@ -42,4 +42,38 @@ export const Container = styled.div`
             }
         }
     }
+    @media (max-width:1200px) {
+        padding-top: 50px;
+        .grid{
+            display: block;
+            .content{
+                .title{
+                    padding: 0px 15px;
+                    h3{
+                        font-size: 22px;
+                        margin: 15px 0px 20px;
+                    }
+                }
+                .text{
+                    padding: 50px 15px;
+                    > div{
+                        &:not(:first-child){
+                            margin-top: 50px;
+                        }
+                        h3{
+                            font-size: 20px;
+                        }
+                        p{
+                            font-size: 14px;
+                            margin-bottom: 10px;
+                            line-height: 1.4;
+                        }
+                    }
+                    img{
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+    }
 `
