@@ -11,11 +11,11 @@ import { off } from 'reduxs/slice/sideMenuSlice';
 import Header from 'components/rewardy/header/Header';
 import Home from 'pages/rewardy/home/Home';
 import Todaywork from 'pages/rewardy/todaywork/Todaywork';
+import Weekly from 'pages/rewardy/todaywork/weekly/Weekly';
 import Live from 'pages/rewardy/live/Live';
 import Coin from 'pages/rewardy/coin/Coin';
 import Challenge from 'pages/rewardy/challenge/Challenge';
 import Party from 'pages/rewardy/party/Party';
-
 
 const Rewardy = () => {
     const nav = useNavigate();

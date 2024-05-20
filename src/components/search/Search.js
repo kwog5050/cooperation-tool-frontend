@@ -7,7 +7,7 @@ import * as Style from './style';
 const Search = ({ value, setValue, placeholder, width }) => {
     return (
         <Style.Container className='searchBox' width={width}>
-            <input type="text" placeholder='챌린지명 검색' />
+            <input type="text" placeholder={placeholder} />
             <button>
                 <img src={rewardyImage.search} alt="" />
             </button>

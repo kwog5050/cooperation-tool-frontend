@@ -27,7 +27,41 @@ export const Container = styled.aside`
             transition: transform .5s;
         }
     }
-    > div:not(.switch){
+    .mobileOnSwitch{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        background-color: #fff;
+        padding: 1.5rem;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        display: none;
+        button{
+            width: 100%;
+            padding: 1.5rem;
+            text-align: center;
+            background-color: #38c9d2;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 400;
+        }
+    }
+    .mobileOffSwitch{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        text-align: center;
+        padding: 1rem 0;
+        img{
+            width: 25px;
+        }
+    }
+    > div:not(.switch, .mobileOnSwitch,.mobileOffSwitch){
         height: 100%;
         background-color: #fff;
         z-index: 1;
@@ -39,20 +73,38 @@ export const Container = styled.aside`
             font-weight: bold;
         }
     }
+    @media (max-width:1024px) {
+        width: 100%;
+        top: unset;
+        bottom: -100%;
+        left: 0 !important;
+        height: auto;
+        border-radius:15px;
+        overflow: hidden;
+        transition: bottom .5s;
+        > div:not(.switch, .mobileOnSwitch,.mobileOffSwitch){
+            width: 100%;
+            padding: 5rem 2rem 2rem;
+        }
+        .mobileOnSwitch{
+            display: block;
+        }
+    }
     ${(props) => props.on && css`
         left: 70px !important;
         .switch{
             img{
                 transform: rotate(180deg);
             }
+        }    
+        @media (max-width:1024px) {
+            bottom: 0;
         }
     `}
-    @media (max-width:1024px) {
-        display: none;
-    }
 `
 
 export const Todaywork = styled.div`
+    position: relative;
     overflow-y: scroll;
     &::-webkit-scrollbar{
         display: none;
@@ -74,16 +126,6 @@ export const Todaywork = styled.div`
                 cursor: pointer;
                 font-size: 1.5rem;
                 font-weight: 500;
-                &:not(:last-child)::after{
-                    content: "";
-                    position: absolute;
-                    top: 50%;
-                    right: 0px;
-                    transform: translateY(-50%);
-                    width: 1px;
-                    height: 1.8rem;
-                    background-color: #aaa;
-                }
             }
             .afterNone{
                 &::after{
@@ -295,6 +337,58 @@ export const Todaywork = styled.div`
             }
         }
     }
+    @media (max-width:1024px) {
+        overflow-y: unset;
+        border-radius:15px;
+        form{
+            display: flex;
+            flex-direction: column;
+            > .box{
+                overflow-y: scroll;
+                height: 30rem;
+                max-width: 100%;
+                &::-webkit-scrollbar{
+                    display: none;
+                }
+                label{
+                    border-radius: 5px;
+                    >img{
+                        width: 18px;
+                    }
+                }
+                textarea{
+                    border-radius: 5px;
+                }
+            }
+            .slideButton{
+                ul{
+                    max-width:100%;
+                }
+            }
+            .buttons{
+                button{
+                    border-radius: 5px;
+                }
+            }
+            .submit{
+                flex: 1;
+                /* position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 7rem;
+                z-index: 1;
+                background-color: #fff;
+                padding: 1rem 2rem;
+                margin-top: 0;
+                .lock,
+                button{
+                    height: 100%;
+                    line-height: unset;
+                } */
+            }
+        }
+    }
 `
 
 export const Live = styled.div`
@@ -393,6 +487,13 @@ export const Live = styled.div`
             }
         }
     }
+    @media (max-width:1024px) {
+        .progressWork{
+            ul{
+                height: 20rem;
+            }
+        }
+    }
 `
 
 export const Coin = styled.div`
@@ -456,10 +557,15 @@ export const Coin = styled.div`
             }
         }
     }
+    @media (max-width:1024px) {
+        height: 50rem !important;
+    }
 `
 
 export const Challenge = styled.div`
     width: 51rem;
+    position: relative;
+    padding: 5rem 5rem 9.5rem 5rem !important;
     h4{
         font-size: 2rem;
         color: #252525;
@@ -491,10 +597,41 @@ export const Challenge = styled.div`
             }
         }
     }
+    >a{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 2rem;
+        > div{
+            text-align: center;
+            flex: 1;
+            color: #fff;
+            background-color: #38c9d2;
+            line-height: 5.5rem;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+    }
+    @media (max-width:1024px) {
+        .box{
+            ul{
+                padding: 2rem;
+                li{
+                    h5{
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
 `
 
 export const Party = styled.div`
     width: 51rem;
+    padding: 5rem 5rem 9.5rem 5rem !important;
     h4{
         font-size: 2rem;
         color: #252525;
@@ -595,6 +732,36 @@ export const Party = styled.div`
                 padding: 0.5rem 1rem;
                 border-radius: 50px;
                 font-size: 1.2rem;
+            }
+        }
+    }
+    >a{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 2rem;
+        > div{
+            text-align: center;
+            flex: 1;
+            color: #fff;
+            background-color: #38c9d2;
+            line-height: 5.5rem;
+            border-radius: 10px;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+    }
+    @media (max-width:1024px) {
+        .box{
+            ul{
+                padding: 2rem;
+                li{
+                    h5{
+                        margin-bottom: 1.5rem;
+                    }
+                }
             }
         }
     }

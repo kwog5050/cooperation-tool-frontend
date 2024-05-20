@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import SwitchBall from 'components/rewardy/switchBall/SwitchBall';
+import ProfilePopup from 'components/rewardy/popup/profile/ProfilePopup';
+import ModifyPasswordPopup from 'components/rewardy/popup/modifyPassword/ModifyPasswordPopup';
 
 import * as Style from "./style";
 
@@ -11,8 +13,16 @@ const Header = () => {
     const [isNote, setIsNote] = useState(false);
     const [isNotification, setIsNotification] = useState(false);
     const [isNotificationChangeSetting, setIsNotificationChangeSetting] = useState(false);
+    const [isAll, setIsAll] = useState(false);
+    const [isTodaywork, setIsTodaywork] = useState(false);
+    const [isChallenge, setIsChallenge] = useState(false);
+    const [isParty, setIsParty] = useState(true);
+    const [isLike, setIsLike] = useState(false);
+    const [isCoin, setIsCoin] = useState(false);
+    const [isMemo, setIsMemo] = useState(false);
     const [isProfile, setIsProfile] = useState(false);
-    const [test, setTest] = useState(false);
+    const [isProfilePopup, setIsProfilePopup] = useState(false);
+    const [isModifyPasswordPopup, setIsModifyPasswordPopup] = useState(false);
 
     const openPopup = (type) => {
         switch (type) {
@@ -42,6 +52,27 @@ const Header = () => {
         setIsNotification(false);
         setIsProfile(false);
     }
+
+    const switchAllOn = (value) => {
+        setIsAll(value);
+        setIsTodaywork(value);
+        setIsChallenge(value);
+        setIsParty(value);
+        setIsLike(value);
+        setIsCoin(value);
+        setIsMemo(value);
+    }
+
+    useEffect(() => { }, [isAll])
+
+    useEffect(() => {
+        if (!isTodaywork || !isChallenge || !isParty || !isLike || !isCoin || !isMemo) {
+            setIsAll(false);
+        }
+        if (isTodaywork && isChallenge && isParty && isLike && isCoin && isMemo) {
+            setIsAll(true);
+        }
+    }, [isTodaywork, isChallenge, isParty, isLike, isCoin, isMemo])
 
     return (
         <header>
@@ -183,7 +214,7 @@ const Header = () => {
                                             <div className="flexBox">
                                                 <h3>전체알림 허용</h3>
 
-                                                <SwitchBall></SwitchBall>
+                                                <SwitchBall value={isAll} setValue={switchAllOn}></SwitchBall>
                                             </div>
                                         </div>
 
@@ -192,42 +223,42 @@ const Header = () => {
                                                 <div className="flexBox">
                                                     <h3>오늘업무 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isTodaywork} setValue={setIsTodaywork}></SwitchBall>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="flexBox">
                                                     <h3>챌린지 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isChallenge} setValue={setIsChallenge}></SwitchBall>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="flexBox">
                                                     <h3>파티 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isParty} setValue={setIsParty}></SwitchBall>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="flexBox">
                                                     <h3>좋아요 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isLike} setValue={setIsLike}></SwitchBall>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="flexBox">
                                                     <h3>코인 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isCoin} setValue={setIsCoin}></SwitchBall>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div className="flexBox">
                                                     <h3>메모 알림</h3>
 
-                                                    <SwitchBall></SwitchBall>
+                                                    <SwitchBall value={isMemo} setValue={setIsMemo}></SwitchBall>
                                                 </div>
                                             </li>
                                         </ol>
@@ -250,7 +281,7 @@ const Header = () => {
                                                 <div className="imageBox">
                                                     <img src={rewardyImage.profile} alt="본인 프로필 사진" />
                                                 </div>
-                                                <button className="setImageButton">
+                                                <button onClick={() => { setIsProfilePopup(true) }} className="setImageButton">
                                                     <img src={rewardyImage.setting} alt="프로필 설정 버튼 이미지" />
                                                 </button>
                                             </div>
@@ -262,7 +293,7 @@ const Header = () => {
                                         </div>
 
                                         <div className="buttons">
-                                            <button>
+                                            <button onClick={() => { setIsModifyPasswordPopup(true) }}>
                                                 <span>비밀번호 재설정</span>
                                                 <img src={rewardyImage.lock} alt="비밀번호 재설정" />
                                             </button>
@@ -310,7 +341,7 @@ const Header = () => {
                 </div>
             </Style.Head>
 
-            <Style.Side on={test ? "true" : ""}>
+            <Style.Side>
                 <ul>
                     <li>
                         <Link to={"/rewardy"}>
@@ -357,6 +388,10 @@ const Header = () => {
                     </li>
                 </ul>
             </Style.Side>
+
+            {/* 팝업 */}
+            {isProfilePopup && <ProfilePopup setIsProfilePopup={setIsProfilePopup}></ProfilePopup>}
+            {isModifyPasswordPopup && <ModifyPasswordPopup setIsModifyPasswordPopup={setIsModifyPasswordPopup}></ModifyPasswordPopup>}
         </header>
     );
 };

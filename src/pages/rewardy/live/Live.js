@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import SideMenu from 'components/rewardy/sideMenu/live/SideMenu';
 import SwitchBall from 'components/rewardy/switchBall/SwitchBall';
+import CapabilityPopup from 'components/rewardy/popup/capability/CapabilityPopup';
+import Like from 'components/rewardy/popup/like/Like';
 
 import { rewardyImage } from 'assets/images/imageConfig';
 
@@ -10,6 +12,7 @@ import * as Style from "./style";
 
 const Live = () => {
     const containerSize = useSelector((state) => state.containerSize.size);
+    const [isCapabilityPopup, setIsCapabilityPopup] = useState(false);
 
     return (
         <>
@@ -91,172 +94,7 @@ const Live = () => {
                                     <span>0</span>
                                     <strong>업무</strong>
                                 </div>
-                                <div className="score">
-                                    <span>987</span>
-                                    <strong>역량</strong>
-                                </div>
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>좋아요</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='profile'>
-                                <div className="flex">
-                                    <div className="info">
-                                        <div className="name">홍길동</div>
-                                        <div className="team">리워디</div>
-                                        <div className="time">9:29</div>
-                                    </div>
-
-                                    <div className="imageBox">
-                                        <img src={rewardyImage.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div className="text">
-                                    <p>-</p>
-                                </div>
-                            </div>
-
-                            <div className="stat">
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>업무</strong>
-                                </div>
-                                <div className="score">
-                                    <span>987</span>
-                                    <strong>역량</strong>
-                                </div>
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>좋아요</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='profile'>
-                                <div className="flex">
-                                    <div className="info">
-                                        <div className="name">홍길동</div>
-                                        <div className="team">리워디</div>
-                                        <div className="time">9:29</div>
-                                    </div>
-
-                                    <div className="imageBox">
-                                        <img src={rewardyImage.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div className="text">
-                                    <p>-</p>
-                                </div>
-                            </div>
-
-                            <div className="stat">
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>업무</strong>
-                                </div>
-                                <div className="score">
-                                    <span>987</span>
-                                    <strong>역량</strong>
-                                </div>
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>좋아요</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='profile'>
-                                <div className="flex">
-                                    <div className="info">
-                                        <div className="name">홍길동</div>
-                                        <div className="team">리워디</div>
-                                        <div className="time">9:29</div>
-                                    </div>
-
-                                    <div className="imageBox">
-                                        <img src={rewardyImage.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div className="text">
-                                    <p>-</p>
-                                </div>
-                            </div>
-
-                            <div className="stat">
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>업무</strong>
-                                </div>
-                                <div className="score">
-                                    <span>987</span>
-                                    <strong>역량</strong>
-                                </div>
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>좋아요</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='profile'>
-                                <div className="flex">
-                                    <div className="info">
-                                        <div className="name">홍길동</div>
-                                        <div className="team">리워디</div>
-                                        <div className="time">9:29</div>
-                                    </div>
-
-                                    <div className="imageBox">
-                                        <img src={rewardyImage.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div className="text">
-                                    <p>-</p>
-                                </div>
-                            </div>
-
-                            <div className="stat">
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>업무</strong>
-                                </div>
-                                <div className="score">
-                                    <span>987</span>
-                                    <strong>역량</strong>
-                                </div>
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>좋아요</strong>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <div className='profile'>
-                                <div className="flex">
-                                    <div className="info">
-                                        <div className="name">홍길동</div>
-                                        <div className="team">리워디</div>
-                                        <div className="time">9:29</div>
-                                    </div>
-
-                                    <div className="imageBox">
-                                        <img src={rewardyImage.profile} alt="" />
-                                    </div>
-                                </div>
-                                <div className="text">
-                                    <p>-</p>
-                                </div>
-                            </div>
-
-                            <div className="stat">
-                                <div className="score">
-                                    <span>0</span>
-                                    <strong>업무</strong>
-                                </div>
-                                <div className="score">
+                                <div className="score" onClick={() => { setIsCapabilityPopup(true) }}>
                                     <span>987</span>
                                     <strong>역량</strong>
                                 </div>
@@ -269,6 +107,11 @@ const Live = () => {
                     </ul>
                 </div>
             </Style.Container>
+
+            {/* 팝업 */}
+            {/* 역량 */}
+            {isCapabilityPopup && <CapabilityPopup setIsCapabilityPopup={setIsCapabilityPopup}></CapabilityPopup>}
+            <Like></Like>
         </>
     );
 };

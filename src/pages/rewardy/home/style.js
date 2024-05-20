@@ -804,15 +804,6 @@ export const Status = styled.div`
             }
         }
     }
-    @media (max-width:380px) {
-        .top{
-            .stat{
-                .graph{
-                    transform: scale(0.9);
-                }
-            }
-        }
-    }
 `
 
 export const Info = styled.div`

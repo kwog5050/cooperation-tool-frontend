@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggle } from 'reduxs/slice/sideMenuSlice';
+import { off, on, toggle } from 'reduxs/slice/sideMenuSlice';
 
 import useSetSideMenuWidth from 'hooks/useSetSideMenuWidth';
 
@@ -22,6 +22,14 @@ const SideMenu = () => {
             <div className="switch" onClick={() => { sideMenuContainerDispatch(toggle()) }}>
                 <img src={rewardyImage.nexrArrow} alt="사이드 메뉴 스위치" />
             </div>
+
+            <div className="mobileOnSwitch" onClick={() => { sideMenuContainerDispatch(on()) }}>
+                <button>메뉴보기</button>
+            </div>
+
+            <button className="mobileOffSwitch" onClick={() => { sideMenuContainerDispatch(off()) }}>
+                <img src={rewardyImage.offArrow} alt="사이드 메뉴 스위치" />
+            </button>
 
             <Style.Coin>
                 <h3>보상/코인</h3>

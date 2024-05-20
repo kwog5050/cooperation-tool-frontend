@@ -41,6 +41,7 @@ const Challenge = () => {
 
                             <Search
                                 width={23}
+                                placeholder={"챌린지명 검색"}
                             ></Search>
                         </div>
                     </div>

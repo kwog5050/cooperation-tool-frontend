@@ -5,6 +5,7 @@ import moment from 'moment';
 
 import SideMenu from 'components/rewardy/sideMenu/todaywork/SideMenu';
 import Calendar from 'components/calendar/Calendar';
+import Select from 'components/select/Select';
 
 import { rewardyImage } from 'assets/images/imageConfig';
 
@@ -32,26 +33,20 @@ const Todaywork = () => {
             <Style.Container width={containerSize}>
                 <div className='top'>
                     <div className="selectBox">
-                        <div className="select">
-                            <span onClick={() => { setDaySelect(true) }}>일일</span>
-                            <img src={rewardyImage.downArrow} alt="" />
-                            <ul onMouseLeave={() => { setDaySelect(false) }} onClick={() => { setDaySelect(false) }} className={daySelect ? "on" : ""}>
-                                <li>일일</li>
-                                <li>주간</li>
-                                <li>월간</li>
-                            </ul>
-                        </div>
-                        <div className="select">
-                            <span onClick={() => { setWorkTypeSelect(true) }}>업무 전체보기</span>
-                            <img src={rewardyImage.downArrow} alt="" />
-                            <ul onMouseLeave={() => { setWorkTypeSelect(false) }} onClick={() => { setWorkTypeSelect(false) }} className={workTypeSelect ? "on" : ""}>
-                                <li>업무 전체보기</li>
-                                <li>업무</li>
-                                <li>보고</li>
-                                <li>요청</li>
-                                <li>공유</li>
-                            </ul>
-                        </div>
+                        <Select
+                            isSelect={daySelect}
+                            setIsSelect={setDaySelect}
+                            list={["일일", "주간", "월간"]}
+                            span={"일일"}
+                            width={10}
+                        ></Select>
+                        <Select
+                            isSelect={workTypeSelect}
+                            setIsSelect={setWorkTypeSelect}
+                            list={["업무 전체보기", "업무", "보고", "요청", "공유"]}
+                            span={"업무 전체보기"}
+                            width={13.3}
+                        ></Select>
                     </div>
 
                     <div className="date">

@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { toggle } from 'reduxs/slice/sideMenuSlice';
+import { off, on, toggle } from 'reduxs/slice/sideMenuSlice';
 
 import useSetSideMenuWidth from 'hooks/useSetSideMenuWidth';
 
 import { rewardyImage } from 'assets/images/imageConfig';
 
 import * as Style from '../style';
+import { Link } from 'react-router-dom';
 
 const SideMenu = () => {
     const sideRef = useRef(null);
@@ -18,10 +19,18 @@ const SideMenu = () => {
     useSetSideMenuWidth(sideRef);
 
     return (
-        <Style.Container ref={sideRef} on={sideMenuContainer ? "true" : "true"} style={{ left: "calc(-51rem + 70px)" }}>
+        <Style.Container ref={sideRef} on={sideMenuContainer ? "true" : ""} style={{ left: "calc(-51rem + 70px)" }}>
             <div className="switch" onClick={() => { sideMenuContainerDispatch(toggle()) }}>
                 <img src={rewardyImage.nexrArrow} alt="사이드 메뉴 스위치" />
             </div>
+
+            <div className="mobileOnSwitch" onClick={() => { sideMenuContainerDispatch(on()) }}>
+                <button>파티 만들기</button>
+            </div>
+
+            <button className="mobileOffSwitch" onClick={() => { sideMenuContainerDispatch(off()) }}>
+                <img src={rewardyImage.offArrow} alt="사이드 메뉴 스위치" />
+            </button>
 
             <Style.Party>
                 <h3>파티</h3>
@@ -62,6 +71,10 @@ const SideMenu = () => {
                         <div className="view">미확인 1건</div>
                     </li>
                 </ul>
+
+                <Link to="/rewardy/party/create">
+                    <div>파티 만들기</div>
+                </Link>
             </Style.Party>
 
         </Style.Container>

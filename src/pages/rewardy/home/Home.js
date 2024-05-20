@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import RadarChart from 'components/rewardy/chart/radar/RadarChart';
@@ -7,8 +7,14 @@ import SwitchBall from 'components/rewardy/switchBall/SwitchBall';
 import { rewardyImage } from 'assets/images/imageConfig';
 
 import * as Style from "./style";
+import ProfilePopup from 'components/rewardy/popup/profile/ProfilePopup';
 
 const Home = () => {
+    const [isProfilePopup, setIsProfilePopup] = useState(false);
+    const [isWork, setIsWork] = useState(false);
+    const [isMeeting, setIsMeeting] = useState(false);
+    const [isLeaveWork, setIsLeaveWork] = useState(false);
+
     return (
         <Style.Container>
             <Style.Timeline>
@@ -45,13 +51,13 @@ const Home = () => {
                     <div className="stat">
                         <div className="profile">
                             <div className="userBox">
-                                <p>상태 메시지를 입력해주세요.</p>
+                                <p onClick={() => { setIsProfilePopup(true) }}>상태 메시지를 입력해주세요.</p>
 
                                 <div className="profileImage">
                                     <div className="imageBox">
                                         <img src={rewardyImage.profile} alt="본인 프로필 사진" />
                                     </div>
-                                    <button className="setImageButton">
+                                    <button onClick={() => { setIsProfilePopup(true) }} className="setImageButton">
                                         <img src={rewardyImage.setting} alt="프로필 설정 버튼 이미지" />
                                     </button>
                                 </div>
@@ -62,41 +68,7 @@ const Home = () => {
                                 </div>
                             </div>
 
-                            <div className="graph">
-                                <div className="chartData">
-                                    <div>
-                                        <h5>에너지</h5>
-                                        <span><b>D</b> (<>0.6</>)</span>
-                                    </div>
-                                    <div>
-                                        <h5>성장</h5>
-                                        <span><b>D</b> (<>0.8</>)</span>
-                                    </div>
-                                    <div>
-                                        <h5>성실</h5>
-                                        <span><b>D</b> (<>0.4</>)</span>
-                                    </div>
-                                    <div>
-                                        <h5>실행</h5>
-                                        <span><b>D</b> (<>0.3</>)</span>
-                                    </div>
-                                    <div>
-                                        <h5>협업</h5>
-                                        <span><b>D</b> (<>0.2</>)</span>
-                                    </div>
-                                    <div>
-                                        <h5>성과</h5>
-                                        <span><b>D</b> (<>0.5</>)</span>
-                                    </div>
-                                </div>
-
-                                <div className="hexagon">
-                                    <img src={rewardyImage.hexagon} alt="육각형" />
-                                    <p>62</p>
-                                </div>
-
-                                <RadarChart chartData={[0.2, 0.2, 0.2, 0.2, 0.2, 0.2]}></RadarChart>
-                            </div>
+                            <RadarChart chartData={[0.2, 0.2, 0.2, 0.2, 0.2, 0.2]}></RadarChart>
                         </div>
                     </div>
                     <div className="info">
@@ -263,15 +235,15 @@ const Home = () => {
                             <ul>
                                 <li>
                                     <span>근무</span>
-                                    <SwitchBall></SwitchBall>
+                                    <SwitchBall value={isWork} setValue={setIsWork}></SwitchBall>
                                 </li>
                                 <li>
                                     <span>회의</span>
-                                    <SwitchBall></SwitchBall>
+                                    <SwitchBall value={isMeeting} setValue={setIsMeeting}></SwitchBall>
                                 </li>
                                 <li>
                                     <span>퇴근</span>
-                                    <SwitchBall></SwitchBall>
+                                    <SwitchBall value={isLeaveWork} setValue={setIsLeaveWork}></SwitchBall>
                                 </li>
                             </ul>
                         </div>
@@ -379,6 +351,9 @@ const Home = () => {
                     </ul>
                 </div>
             </Style.Info>
+
+            {/* 팝업 */}
+            {isProfilePopup && <ProfilePopup setIsProfilePopup={setIsProfilePopup}></ProfilePopup>}
         </Style.Container>
     );
 };

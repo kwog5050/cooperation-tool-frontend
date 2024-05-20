@@ -1,6 +1,8 @@
 import React from 'react';
 import { Chart as ChartJS } from 'chart.js/auto';
 import { Radar } from 'react-chartjs-2';
+import { rewardyImage } from 'assets/images/imageConfig';
+import * as Style from "./style";
 
 const RadarChart = ({ chartData }) => {
     let chartArr = [];
@@ -58,7 +60,42 @@ const RadarChart = ({ chartData }) => {
     }
 
     return (
-        <Radar data={data} options={options} />
+        <Style.Graph>
+            <div className="chartData">
+                <div>
+                    <h5>에너지</h5>
+                    <span><b>D</b> (<>{chartData[0]}</>)</span>
+                </div>
+                <div>
+                    <h5>성장</h5>
+                    <span><b>D</b> (<>{chartData[1]}</>)</span>
+                </div>
+                <div>
+                    <h5>성실</h5>
+                    <span><b>D</b> (<>{chartData[2]}</>)</span>
+                </div>
+                <div>
+                    <h5>실행</h5>
+                    <span><b>D</b> (<>{chartData[3]}</>)</span>
+                </div>
+                <div>
+                    <h5>협업</h5>
+                    <span><b>D</b> (<>{chartData[4]}</>)</span>
+                </div>
+                <div>
+                    <h5>성과</h5>
+                    <span><b>D</b> (<>{chartData[5]}</>)</span>
+                </div>
+            </div>
+
+            <div className="hexagon">
+                <img src={rewardyImage.hexagon} alt="육각형" />
+                <p>62</p>
+            </div>
+
+
+            <Radar data={data} options={options} />
+        </Style.Graph>
     );
 };
 
