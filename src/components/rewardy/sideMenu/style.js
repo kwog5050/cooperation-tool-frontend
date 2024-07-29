@@ -57,6 +57,7 @@ export const Container = styled.aside`
         z-index: 2;
         text-align: center;
         padding: 1rem 0;
+        display: none;
         img{
             width: 25px;
         }
@@ -86,7 +87,8 @@ export const Container = styled.aside`
             width: 100%;
             padding: 5rem 2rem 2rem;
         }
-        .mobileOnSwitch{
+        .mobileOnSwitch,
+        .mobileOffSwitch{
             display: block;
         }
     }

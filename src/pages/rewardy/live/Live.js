@@ -111,7 +111,7 @@ const Live = () => {
             {/* 팝업 */}
             {/* 역량 */}
             {isCapabilityPopup && <CapabilityPopup setIsCapabilityPopup={setIsCapabilityPopup}></CapabilityPopup>}
-            <Like></Like>
+            {/* <Like></Like> */}
         </>
     );
 };

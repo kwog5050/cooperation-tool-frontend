@@ -24,6 +24,17 @@ const Like = () => {
 
                     <button><img src={rewardyImage.bars} alt="" /></button>
                 </div>
+
+                <div className="chart">
+                    <ul>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                        <li><span><img src={rewardyImage.liveHeart} alt="" />3</span></li>
+                    </ul>
+                </div>
             </div>
             <div className="bg on"></div>
         </Style.Container>
