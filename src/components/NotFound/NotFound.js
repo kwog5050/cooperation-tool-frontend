@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import { browserImage } from 'assets/images/imageConfig';
-
 import * as Style from "./style";
 
 const NotFound = () => {
@@ -47,7 +45,6 @@ const NotFound = () => {
 
     return (
         <Style.NotFound>
-            <img src={browserImage.logo} alt="로고" />
             {ErrorMessage()}
             <div className="buttons">
                 <Link to="/">홈으로</Link>

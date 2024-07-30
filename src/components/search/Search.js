@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { rewardyImage } from 'assets/images/imageConfig';
+import { cooperationImage } from 'assets/images/imageConfig';
 
 import * as Style from './style';
 
@@ -9,7 +9,7 @@ const Search = ({ value, setValue, placeholder, width }) => {
         <Style.Container className='searchBox' width={width}>
             <input type="text" placeholder={placeholder} />
             <button>
-                <img src={rewardyImage.search} alt="" />
+                <img src={cooperationImage.search} alt="" />
             </button>
         </Style.Container>
     );

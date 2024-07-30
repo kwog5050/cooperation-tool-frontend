@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { rewardyImage } from 'assets/images/imageConfig';
+import { cooperationImage } from 'assets/images/imageConfig';
 
 import * as Style from './style';
 
@@ -18,7 +18,7 @@ const Select = ({ isSelect, setIsSelect, setValue, list, span, width }) => {
     return (
         <Style.Container className="select" width={width}>
             <span onClick={() => { setIsSelect(true) }}>{span}</span>
-            <img src={rewardyImage.downArrow} alt="" />
+            <img src={cooperationImage.downArrow} alt="" />
             <ul onMouseLeave={() => { setIsSelect(false) }} onClick={() => { setIsSelect(false) }} className={isSelect ? "on" : ""}>
                 {
                     list?.map((item, i) => {
