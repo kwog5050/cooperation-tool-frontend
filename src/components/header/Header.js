@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import SwitchBall from 'components/switchBall/SwitchBall';
 import ProfilePopup from 'components/cooperationPopup/profile/ProfilePopup';
@@ -10,6 +10,7 @@ import * as Style from "./style";
 import { cooperationImage } from 'assets/images/imageConfig';
 
 const Header = () => {
+    const nav = useNavigate();
     const [isNote, setIsNote] = useState(false);
     const [isNotification, setIsNotification] = useState(false);
     const [isNotificationChangeSetting, setIsNotificationChangeSetting] = useState(false);
@@ -61,6 +62,12 @@ const Header = () => {
         setIsLike(value);
         setIsCoin(value);
         setIsMemo(value);
+    }
+
+    const logout = () => {
+        sessionStorage.removeItem("loginToken");
+        sessionStorage.removeItem("email");
+        nav("/")
     }
 
     useEffect(() => { }, [isAll])
@@ -287,7 +294,7 @@ const Header = () => {
                                                 <span>비밀번호 재설정</span>
                                                 <img src={cooperationImage.lock} alt="비밀번호 재설정" />
                                             </button>
-                                            <button>
+                                            <button onClick={logout}>
                                                 <span>로그아웃</span>
                                                 <img src={cooperationImage.logout} alt="로그아웃 버튼" />
                                             </button>

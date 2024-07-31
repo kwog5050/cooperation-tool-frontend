@@ -104,7 +104,7 @@ const Todaywork = () => {
                             <div className="comment">
                                 <ol>
                                     <li>
-                                        <div className="name">권정우</div>
+                                        <div className="name">홍길동2번</div>
                                         <div className="text">
                                             <p>
                                                 <img src={cooperationImage.coin} alt="" />
@@ -114,7 +114,7 @@ const Todaywork = () => {
                                         </div>
                                     </li>
                                     <li>
-                                        <div className="name">권정우</div>
+                                        <div className="name">홍길동2번</div>
                                         <div className="text">
                                             <p>
                                                 협업에 감사합니다.
@@ -123,7 +123,7 @@ const Todaywork = () => {
                                         </div>
                                     </li>
                                     <li>
-                                        <div className="name">권정우</div>
+                                        <div className="name">홍길동2번</div>
                                         <div className="text">
                                             <p>
                                                 메모메모메모

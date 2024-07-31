@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { login } from 'apis/user.js';
-import Register from './Register.js';
+import userApi from 'apis/userApi';
+import Register from './Register';
 
-import * as Style from './style.js';
+import * as Style from './style';
 
-import { componentImages } from 'assets/images/imageConfig.js';
+import { componentImages } from 'assets/images/imageConfig';
 
 const Login = () => {
     const nav = useNavigate();
@@ -31,7 +31,10 @@ const Login = () => {
     };
 
     const submit = async () => {
-        if (await login({ email: email, password: password }) === "success") {
+        const res = await userApi.login({ email: email, password: password });
+        if (res.result === "success") {
+            sessionStorage.setItem("email", res.data.email);
+            sessionStorage.setItem("loginToken", res.data.token);
             nav("/cooperation");
         }
     }

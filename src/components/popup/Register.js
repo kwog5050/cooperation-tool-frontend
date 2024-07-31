@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import * as Style from './style.js';
+import * as Style from './style';
 
 const Register = ({ popupStep, setPopupStep }) => {
     const [name, setName] = useState("");
