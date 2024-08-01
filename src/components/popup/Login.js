@@ -36,6 +36,12 @@ const Login = () => {
             sessionStorage.setItem("email", res.data.email);
             sessionStorage.setItem("loginToken", res.data.token);
             nav("/cooperation");
+        } else if (res.result === "fail") {
+            alert(res.msg);
+        } else if (res.result === "notFound") {
+            alert(res.msg);
+        } else {
+            alert("알 수 없는 에러 발생");
         }
     }
 
