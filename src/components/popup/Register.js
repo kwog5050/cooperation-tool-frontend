@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import * as Style from './style';
+import userApi from 'apis/userApi';
 
 const Register = ({ popupStep, setPopupStep }) => {
     const [name, setName] = useState("");
@@ -10,8 +11,19 @@ const Register = ({ popupStep, setPopupStep }) => {
     const [email, setEmail] = useState("");
     const [isEmail, setIsEmail] = useState(false);
 
+    const invitationCodeCheck = async () => {
+        const res = await userApi.invitationCodeCheck({ code: invitationCode });
+        if (res.result === "success") {
+            alert("초대코드 검증 완료");
+            setIsInvitationCode(true);
+        } else {
+            alert("초대코드 검증 실패");
+            setIsInvitationCode(false);
+        }
+    }
+
     // 가입하기 다음으로 넘어갈때 텍스트 체크 후 다음으로
-    const submit = () => {
+    const submit = async () => {
         const emailRegex = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
         if (name.length <= 0) {
@@ -32,11 +44,22 @@ const Register = ({ popupStep, setPopupStep }) => {
         } else if (!isInvitationCode) {
             alert("초대코드 확인해주세요.");
             return;
-        } else if (!isEmail) {
-            alert("이메일 중복검사를 해주세요.");
-            return;
-        } else {
-            setPopupStep(2);
+        }
+        // else if (!isEmail) {
+        //     alert("이메일 중복검사를 해주세요.");
+        //     return;
+        // }
+
+        const res = await userApi.create({
+            name: name,
+            email: email,
+            password: password,
+            invitationCode: invitationCode
+        })
+
+        if (res.result === "success") {
+            alert("회원가입 완료 로그인 해주세요");
+            setPopupStep(0);
         }
     }
 
@@ -88,7 +111,7 @@ const Register = ({ popupStep, setPopupStep }) => {
                     <input onChange={onChange} type="password" placeholder='비밀번호를 입력해주세요' name='password' value={password} />
                     <div className="flex">
                         <input onChange={onChange} type="text" placeholder='초대코드를 입력해주세요.' name='invitationCode' value={invitationCode} maxLength={12} />
-                        <button>코드확인</button>
+                        <button onClick={invitationCodeCheck}>코드확인</button>
                     </div>
                     <div className="flex">
                         <input onChange={onChange} type="text" placeholder='이메일을 입력해주세요.' name='email' value={email} />
