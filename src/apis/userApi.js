@@ -12,9 +12,20 @@ const invitationCodeCheck = async (data) => {
     }
 }
 
-const create = async (data) => {
+// 이메일 중복 검사
+const emailCheck = async (data) => {
     try {
-        const res = await axios.post("/user", data);
+        const res = await axios.post("/email", data);
+
+        return res.data;
+    } catch (error) {
+        handleApiError(error);
+    }
+}
+
+const createUser = async (data) => {
+    try {
+        const res = await axios.post("/createUser", data);
 
         return res.data;
     } catch (error) {
@@ -44,6 +55,17 @@ const tokenCheck = async (data) => {
     }
 }
 
-const userApi = { invitationCodeCheck, create, login, tokenCheck }
+// 비밀번호 수정
+const modifyPassword = async (data) => {
+    try {
+        const res = await axios.post("/modifyPassword", data);
+
+        return res.data;
+    } catch (error) {
+        handleApiError(error)
+    }
+}
+
+const userApi = { invitationCodeCheck, emailCheck, createUser, login, tokenCheck, modifyPassword }
 
 export default userApi;

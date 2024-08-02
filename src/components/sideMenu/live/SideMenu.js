@@ -20,7 +20,7 @@ const SideMenu = () => {
     return (
         <Style.Container ref={sideRef} on={sideMenuContainer ? "true" : ""} style={{ left: "calc(-54rem + 70px)" }}>
             <div className="switch" onClick={() => { sideMenuContainerDispatch(toggle()) }}>
-                <img src={cooperationImage.nexrArrow} alt="사이드 메뉴 스위치" />
+                <img src={cooperationImage.nextArrow} alt="사이드 메뉴 스위치" />
             </div>
 
             <div className="mobileOnSwitch" onClick={() => { sideMenuContainerDispatch(on()) }}>

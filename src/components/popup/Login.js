@@ -31,15 +31,15 @@ const Login = () => {
     };
 
     const submit = async () => {
-        const res = await userApi.login({ email: email, password: password });
-        if (res.result === "success") {
-            sessionStorage.setItem("email", res.data.email);
-            sessionStorage.setItem("loginToken", res.data.token);
+        const api = await userApi.login({ email: email, password: password });
+        if (api.result === "success") {
+            sessionStorage.setItem("email", api.data.email);
+            sessionStorage.setItem("loginToken", api.data.token);
             nav("/cooperation");
-        } else if (res.result === "fail") {
-            alert(res.msg);
-        } else if (res.result === "notFound") {
-            alert(res.msg);
+        } else if (api.result === "fail") {
+            alert(api.msg);
+        } else if (api.result === "notFound") {
+            alert(api.msg);
         } else {
             alert("알 수 없는 에러 발생");
         }

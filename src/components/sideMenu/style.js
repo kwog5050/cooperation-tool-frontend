@@ -106,6 +106,7 @@ export const Container = styled.aside`
 `
 
 export const Todaywork = styled.div`
+    width: 51rem;
     position: relative;
     overflow-y: scroll;
     &::-webkit-scrollbar{
@@ -158,9 +159,6 @@ export const Todaywork = styled.div`
                 font-size: 1.5rem;
             }
         }
-        .hide{
-            display: none !important;
-        }
         label{
             position: relative;
             width: 100%;
@@ -188,7 +186,7 @@ export const Todaywork = styled.div`
         }
         textarea{
             width: 100%;
-            min-height: 15rem;
+            min-height: 20rem;
             resize: vertical;
             background-color: #fff;
             border: 1px solid #eee;
@@ -197,94 +195,7 @@ export const Todaywork = styled.div`
             padding: 1.5rem;
             font-size: 1.6rem;
         }
-        .slideButton{
-            margin-top: 1rem;
-            ul{
-                display: flex;
-                align-items: center;
-                gap: 3px;
-                overflow: hidden;
-                max-width: 37rem;
-                li{
-                    padding: 1rem 0;
-                    flex: 1;
-                    text-align: center;
-                    background-color: #fff;
-                    border-radius: 5px;
-                    border: 1px solid #eee;
-                    cursor: pointer;
-                }
-                li.on{
-                    background-color: #43454c;
-                    color: #fff;
-                }
-            }
-        }
-        .timeBox{
-            display: none;
-            align-items: center;
-            justify-content: center;
-            background-color: #edeef0;
-            gap: 0.7rem;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            > div{
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.7rem;
-                flex: 1;
-                > div{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    background-color: #fff;
-                    padding: 0px 1rem;
-                    border-radius: 5px;
-                    flex: 1;
-                    cursor: pointer;
-                    position: relative;
-                    span{
-                        line-height: 4.4rem;
-                    }
-                    img{
-                        width: 10px;
-                    }
-                    > ul{
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        width: 100%;
-                        max-height: 13.2rem;
-                        overflow-y: scroll;
-                        display: none;
-                        flex-direction: column;
-                        background-color: #fff;
-                        border-radius: 5px;
-                        li{
-                            line-height: 4.4rem;
-                            padding: 0px 1rem;
-                            width: 100%;
-                            &:hover{
-                                background-color: #43454c;
-                                color: #fff;
-                            }
-                        }
-                    }
-                    > ul.on{
-                        display: flex;
-                    }
-                }
-            }
-        }
-        .on.timeBox{
-            display: flex;
-        }
-        .buttons{
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+        .shareButton{
             margin-top: 1rem;
             button{
                 width: 100%;
@@ -297,18 +208,8 @@ export const Todaywork = styled.div`
                 align-items: center;
                 justify-content: center;
                 gap: 1rem;
-                input{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 0;
-                    height: 0;
-                    opacity: 0;
-                }
-                span{
-                    font-size: 1.6rem;
-                    color: #38c9d2;
-                }
+                font-size: 1.6rem;
+                color: #38c9d2;
             }
         }
         .submit{
@@ -362,32 +263,8 @@ export const Todaywork = styled.div`
                     border-radius: 5px;
                 }
             }
-            .slideButton{
-                ul{
-                    max-width:100%;
-                }
-            }
-            .buttons{
-                button{
-                    border-radius: 5px;
-                }
-            }
             .submit{
                 flex: 1;
-                /* position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 100%;
-                height: 7rem;
-                z-index: 1;
-                background-color: #fff;
-                padding: 1rem 2rem;
-                margin-top: 0;
-                .lock,
-                button{
-                    height: 100%;
-                    line-height: unset;
-                } */
             }
         }
     }

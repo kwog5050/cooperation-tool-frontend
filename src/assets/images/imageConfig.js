@@ -35,7 +35,7 @@ export const cooperationImage = {
     profile: require(COOPERATION_URL + "/profile.png"),
     downArrow: require(COOPERATION_URL + "/down_arrow.png"),
     backArrow: require(COOPERATION_URL + "/back_arrow.png"),
-    nexrArrow: require(COOPERATION_URL + "/next_arrow.png"),
+    nextArrow: require(COOPERATION_URL + "/next_arrow.png"),
     setting: require(COOPERATION_URL + "/setting.png"),
     share: require(COOPERATION_URL + "/share.png"),
     close: require(COOPERATION_URL + "/close.png"),

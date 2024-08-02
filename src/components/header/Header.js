@@ -388,7 +388,7 @@ const Header = () => {
 
             {/* 팝업 */}
             {isProfilePopup && <ProfilePopup setIsProfilePopup={setIsProfilePopup}></ProfilePopup>}
-            {isModifyPasswordPopup && <ModifyPasswordPopup setIsModifyPasswordPopup={setIsModifyPasswordPopup}></ModifyPasswordPopup>}
+            {isModifyPasswordPopup && <ModifyPasswordPopup setIsModifyPasswordPopup={setIsModifyPasswordPopup} ></ModifyPasswordPopup>}
         </header>
     );
 };

@@ -11,14 +11,27 @@ const Register = ({ popupStep, setPopupStep }) => {
     const [email, setEmail] = useState("");
     const [isEmail, setIsEmail] = useState(false);
 
+    // 초대코드 검사
     const invitationCodeCheck = async () => {
-        const res = await userApi.invitationCodeCheck({ code: invitationCode });
-        if (res.result === "success") {
+        const api = await userApi.invitationCodeCheck({ code: invitationCode });
+        if (api.result === "success") {
             alert("초대코드 검증 완료");
             setIsInvitationCode(true);
         } else {
             alert("초대코드 검증 실패");
             setIsInvitationCode(false);
+        }
+    }
+
+    // 이메일 중복 검사 
+    const emailCheck = async () => {
+        const api = await userApi.emailCheck({ email: email });
+        if (api.result === "success") {
+            alert("이메일 중복 안됨");
+            setIsEmail(true);
+        } else {
+            alert("이메일 중복");
+            setIsEmail(false);
         }
     }
 
@@ -44,13 +57,12 @@ const Register = ({ popupStep, setPopupStep }) => {
         } else if (!isInvitationCode) {
             alert("초대코드 확인해주세요.");
             return;
+        } else if (!isEmail) {
+            alert("이메일 중복검사를 해주세요.");
+            return;
         }
-        // else if (!isEmail) {
-        //     alert("이메일 중복검사를 해주세요.");
-        //     return;
-        // }
 
-        const res = await userApi.create({
+        const res = await userApi.createUser({
             name: name,
             email: email,
             password: password,
@@ -115,7 +127,7 @@ const Register = ({ popupStep, setPopupStep }) => {
                     </div>
                     <div className="flex">
                         <input onChange={onChange} type="text" placeholder='이메일을 입력해주세요.' name='email' value={email} />
-                        <button>중복확인</button>
+                        <button onClick={emailCheck}>중복확인</button>
                     </div>
                 </div>
 
