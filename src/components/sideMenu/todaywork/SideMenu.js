@@ -24,7 +24,6 @@ const SideMenu = () => {
     const [shareId, setShareId] = useState("");
     const [content, setContent] = useState("");
 
-
     // 사이드메뉴 크기 저장
     useSetSideMenuWidth(sideRef);
 
@@ -39,6 +38,7 @@ const SideMenu = () => {
 
         if (api.result === "success") {
             alert("작성 완료");
+            setContent("");
         }
     }
 
@@ -81,7 +81,7 @@ const SideMenu = () => {
 
                         {isCalendar && <Calendar setIsCalendar={setIsCalendar} setValue={setDate} />}
 
-                        <textarea name="todayworkContent" placeholder="업무를 입력해주세요." onChange={onChange}></textarea>
+                        <textarea name="todayworkContent" placeholder="업무를 입력해주세요." value={content} onChange={onChange}></textarea>
                         {
                             menuIndex === 1 &&
                             <div className="shareButton">

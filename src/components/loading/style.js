@@ -11,7 +11,7 @@ export const Loading = styled.div`
     text-align: center;
     > div{
         width: 150px;
-        height: 182px;
+        height: 150px;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -43,7 +43,7 @@ export const Loading = styled.div`
             letter-spacing: 0.5em;
             line-height: 21px;
             text-align: center;
-            padding-top: 135px;
+            padding-top: 100px;
             color: #fff;
             padding-left: 4px;
         }

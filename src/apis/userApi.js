@@ -66,6 +66,6 @@ const modifyPassword = async (data) => {
     }
 }
 
-const userApi = { invitationCodeCheck, emailCheck, createUser, login, tokenCheck, modifyPassword }
+const userApi = { invitationCodeCheck, emailCheck, createUser, login, tokenCheck, modifyPassword };
 
 export default userApi;
