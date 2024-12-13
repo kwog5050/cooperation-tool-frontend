@@ -33,20 +33,20 @@ const Todaywork = () => {
 
     const getTodaywork = async () => {
         const res = await todayworkApi.getTodaywork({
-            email: sessionStorage.getItem("email")
+            email: sessionStorage.getItem("email"),
+            calendarDate: calendar
         });
 
         if (res.result === "success") {
             setTodayworkList(res.data);
         } else {
             setTodayworkList(undefined);
-            alert(res.msg);
         }
     }
 
     useEffect(() => {
         getTodaywork();
-    }, [])
+    }, [calendar])
 
 
     return (
@@ -54,7 +54,7 @@ const Todaywork = () => {
             ? <Loading />
             :
             <>
-                <SideMenu />
+                <SideMenu getTodaywork={getTodaywork} calendar={calendar} setCalendar={setCalendar} />
                 <Style.Container width={containerSize}>
                     <div className='top'>
                         <div className="selectBox">
@@ -102,38 +102,37 @@ const Todaywork = () => {
                     <div className='list'>
                         <ul>
                             {
-                                todayworkList.map((item, i) => {
-                                    return <li key={i}>
-                                        <div className="content">
-                                            {/* 공유일때 아이콘 */}
-                                            {
-                                                item.share_id !== "" &&
-                                                <span>
-                                                    <img src={cooperationImage.share} alt="" />
-                                                </span>
-                                            }
+                                todayworkList?.map((item, i) => {
+                                    return <>
+                                        <li key={i}>
+                                            <div className="content">
+                                                {/* 공유일때 아이콘 */}
+                                                {
+                                                    item.share_id !== "" &&
+                                                    <span>
+                                                        <img src={cooperationImage.share} alt="" />
+                                                    </span>
+                                                }
 
-                                            <div className="text">
-                                                <p>
-                                                    {/* 공유경우 span 추가 */}
-                                                    {
-                                                        item.share_id !== "" &&
-                                                        <span>[{item.share_id}님이 공유함]</span>
-                                                    }
-                                                    {item.content}
-                                                </p>
-                                            </div>
+                                                <div className="text">
+                                                    <p>
+                                                        {/* 공유경우 span 추가 */}
+                                                        {
+                                                            item.share_id !== "" &&
+                                                            <span>[{item.share_id}님이 공유함]</span>
+                                                        }
+                                                        {item.content}
+                                                    </p>
+                                                </div>
 
-                                            <div className="buttons">
-                                                <button>
-                                                    <img src={cooperationImage.todayworkBars} alt="" />
-                                                </button>
-                                                <button>
-                                                    <img src={cooperationImage.todayworkMore} alt="" />
-                                                </button>
+                                                <div className="buttons">
+                                                    <button>
+                                                        <img src={cooperationImage.todayworkBars} alt="" />
+                                                    </button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
+                                        </li>
+                                    </>
                                 })
                             }
                             <li>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import RadarChart from 'components/radar/RadarChart';
@@ -9,11 +9,31 @@ import { cooperationImage } from 'assets/images/imageConfig';
 import * as Style from "./style";
 import ProfilePopup from 'components/cooperationPopup/profile/ProfilePopup';
 
+import todayworkApi from 'apis/todaywork';
+
 const Home = () => {
     const [isProfilePopup, setIsProfilePopup] = useState(false);
     const [isWork, setIsWork] = useState(false);
     const [isMeeting, setIsMeeting] = useState(false);
     const [isLeaveWork, setIsLeaveWork] = useState(false);
+    const [timeLine, setTimeLine] = useState(null);
+
+    const getTodaywork = async () => {
+        const res = await todayworkApi.getTodaywork({
+            email: sessionStorage.getItem("email"),
+        });
+
+        if (res.result === "success") {
+            setTimeLine(res.data);
+        } else {
+            setTimeLine(undefined);
+        }
+    }
+
+    useEffect(() => {
+        getTodaywork();
+    }, [])
+
 
     return (
         <Style.Container>
@@ -21,28 +41,22 @@ const Home = () => {
                 <h3>타임라인</h3>
                 <div className="list">
                     <ul>
-                        <li>
-                            <p>오늘 업무 작성</p>
-                            <span>10:35 AM</span>
+                        {
+                            timeLine?.map((item, i) => {
+                                return <li key={i}>
+                                    <p>{item.is_share === 0 ? "오늘 업무 작성" : "업무를 공유함"}</p>
+                                    <span>{item.write_time}</span>
 
-                            <div className="ball">
-                                <div>
-                                    <div></div>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <p>출근</p>
-                            <span>09:26 AM</span>
+                                    <div className="ball">
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                        {i !== 0 && <span className="line"></span>}
 
-                            <div className="ball">
-                                <div>
-                                    <div></div>
-                                </div>
-
-                                <span className="line"></span>
-                            </div>
-                        </li>
+                                    </div>
+                                </li>
+                            })
+                        }
                     </ul>
                 </div>
             </Style.Timeline>

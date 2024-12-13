@@ -13,7 +13,7 @@ import { cooperationImage } from 'assets/images/imageConfig';
 import * as Style from '../style';
 import todayworkApi from 'apis/todaywork';
 
-const SideMenu = () => {
+const SideMenu = ({ getTodaywork, calendar, setCalendar }) => {
     const today = moment().format("YYYY-MM-DD");
     const sideRef = useRef(null);
     const sideMenuContainer = useSelector((state) => state.sideMenuContainer.isSide);
@@ -32,13 +32,21 @@ const SideMenu = () => {
         const api = await todayworkApi.createTodaywork({
             writeId: sessionStorage.getItem("email"),
             shareId: shareId,
-            date: today,
-            content: content
+            date: date,
+            content: content,
+            isShare: menuIndex
         })
 
         if (api.result === "success") {
             alert("작성 완료");
+            setMenuIndex(0);
             setContent("");
+            if (calendar !== date) {
+                if (window.confirm("작성 날짜로 이동하시겠습니까?")) {
+                    setCalendar(date);
+                }
+            }
+            getTodaywork();
         }
     }
 

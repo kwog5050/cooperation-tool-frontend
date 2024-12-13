@@ -108,9 +108,6 @@ export const Container = styled.div`
                             &:hover{
                                 background-color: #eee;
                             }
-                            &:nth-child(1){
-                                cursor: all-scroll;
-                            }
                             img{
                                 max-width: 17px;  -webkit-touch-callout: none;
                                 -webkit-user-select: none;
