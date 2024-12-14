@@ -22,6 +22,8 @@ const Todaywork = () => {
     const [workTypeSelect, setWorkTypeSelect] = useState(false);
     const [isCalendar, setIsCalendar] = useState(false);
     const [calendar, setCalendar] = useState(today);
+    const [isWorkSelect, setIsWorkSelect] = useState(false);
+    const [workSelectIndex, setWorkSelectIndex] = useState(0);
 
     // 날짜이동
     const prevDay = () => {
@@ -31,6 +33,31 @@ const Todaywork = () => {
         setCalendar(moment(calendar).add(1, 'day').format("YYYY-MM-DD"));
     }
 
+    // 업무리스트 메뉴바 클릭
+    const workListSelectMenuClick = (index) => {
+        setIsWorkSelect(true);
+        setWorkSelectIndex(index);
+    }
+
+    // 오늘업무 삭제
+    const deleteTodaywork = async (id) => {
+        const res = await todayworkApi.deleteTodaywork({
+            id: id,
+            writeId: sessionStorage.getItem("email")
+        });
+
+        if (res.result === "success") {
+            alert("삭제 완료");
+        } else {
+            alert("예기치 못한 오류 발생으로 삭제 실패");
+        }
+
+        setIsWorkSelect(false);
+
+        getTodaywork();
+    }
+
+    // 오늘업무 가져오기
     const getTodaywork = async () => {
         const res = await todayworkApi.getTodaywork({
             email: sessionStorage.getItem("email"),
@@ -103,36 +130,45 @@ const Todaywork = () => {
                         <ul>
                             {
                                 todayworkList?.map((item, i) => {
-                                    return <>
-                                        <li key={i}>
-                                            <div className="content">
-                                                {/* 공유일때 아이콘 */}
-                                                {
-                                                    item.share_id !== "" &&
-                                                    <span>
-                                                        <img src={cooperationImage.share} alt="" />
-                                                    </span>
-                                                }
+                                    return <li key={i}>
+                                        <div className="content">
+                                            {/* 공유일때 아이콘 */}
+                                            {
+                                                item.share_id !== "" &&
+                                                <span>
+                                                    <img src={cooperationImage.share} alt="" />
+                                                </span>
+                                            }
 
-                                                <div className="text">
-                                                    <p>
-                                                        {/* 공유경우 span 추가 */}
-                                                        {
-                                                            item.share_id !== "" &&
-                                                            <span>[{item.share_id}님이 공유함]</span>
-                                                        }
-                                                        {item.content}
-                                                    </p>
-                                                </div>
-
-                                                <div className="buttons">
-                                                    <button>
-                                                        <img src={cooperationImage.todayworkBars} alt="" />
-                                                    </button>
-                                                </div>
+                                            <div className="text">
+                                                <p>
+                                                    {/* 공유경우 span 추가 */}
+                                                    {
+                                                        item.share_id !== "" &&
+                                                        <span>[{item.share_id}님이 공유함]</span>
+                                                    }
+                                                    {item.content}
+                                                </p>
                                             </div>
-                                        </li>
-                                    </>
+
+                                            <div className="buttons">
+                                                <button onClick={() => { workListSelectMenuClick(i) }}>
+                                                    <img src={cooperationImage.todayworkBars} alt="" />
+                                                </button>
+                                                {isWorkSelect &&
+                                                    workSelectIndex === i &&
+                                                    <div className="workSelect" onMouseLeave={() => { setIsWorkSelect(false) }}>
+                                                        <span onClick={() => {
+                                                            deleteTodaywork(item.id)
+                                                        }}>업무 삭제</span>
+                                                        <span onClick={() => {
+                                                            setIsWorkSelect(false)
+                                                        }}>업무 수정</span>
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                    </li>
                                 })
                             }
                             <li>

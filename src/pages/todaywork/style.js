@@ -101,6 +101,7 @@ export const Container = styled.div`
                         }
                     }
                     .buttons{
+                        position: relative;
                         button{
                             width: 4rem;
                             height: 4rem;
@@ -116,6 +117,30 @@ export const Container = styled.div`
                                 -ms-user-select: none;
                                 user-select: none;
                                 -webkit-user-drag: none;
+                            }
+                        }
+                        .workSelect{
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                            display: flex;
+                            flex-direction: column;
+                            background-color: #fff;
+                            box-shadow: 0 7px 15px #00000033;
+                            z-index: 1;
+                            border-radius: 0.5rem;
+                            span{
+                                width: 10rem;
+                                padding: 1rem;
+                                display: inline-block;
+                                cursor: pointer;
+                                text-align: center;
+                                &:hover{
+                                    background-color: #eee;
+                                }
+                                &:nth-child(1){
+                                    border-bottom: 1px solid #eee;
+                                }
                             }
                         }
                     }
