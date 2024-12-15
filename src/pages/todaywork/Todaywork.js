@@ -24,6 +24,9 @@ const Todaywork = () => {
     const [calendar, setCalendar] = useState(today);
     const [isWorkSelect, setIsWorkSelect] = useState(false);
     const [workSelectIndex, setWorkSelectIndex] = useState(0);
+    const [isTodayworkModify, setIsTodayworkModify] = useState(false);
+    const [modifyTodayworkText, setTodayworkModifyText] = useState("");
+    const [modifyTodayworkId, setTodayworkModifyId] = useState("");
 
     // 날짜이동
     const prevDay = () => {
@@ -39,6 +42,34 @@ const Todaywork = () => {
         setWorkSelectIndex(index);
     }
 
+    // 오늘업무 수정 클릭
+    const modifyTodayworkClick = (text, id) => {
+        setTodayworkModifyText(text);
+        setTodayworkModifyId(id);
+        setIsWorkSelect(false);
+        setIsTodayworkModify(true);
+    }
+
+    // 오늘업무 수정
+    const modifyTodaywork = async () => {
+        const res = await todayworkApi.modifyTodaywork({
+            writeId: sessionStorage.getItem("email"),
+            content: modifyTodayworkText,
+            id: modifyTodayworkId
+        })
+
+        if (res.result === "success") {
+            alert("수정 완료");
+            setTodayworkModifyText("");
+            setTodayworkModifyId("");
+            setIsTodayworkModify(false);
+        } else {
+            alert("예기치 못한 오류 발생으로 수정 실패했습니다.");
+        }
+
+        getTodaywork();
+    }
+
     // 오늘업무 삭제
     const deleteTodaywork = async (id) => {
         const res = await todayworkApi.deleteTodaywork({
@@ -49,7 +80,7 @@ const Todaywork = () => {
         if (res.result === "success") {
             alert("삭제 완료");
         } else {
-            alert("예기치 못한 오류 발생으로 삭제 실패");
+            alert("예기치 못한 오류 발생으로 삭제 실패했습니다.");
         }
 
         setIsWorkSelect(false);
@@ -75,6 +106,10 @@ const Todaywork = () => {
         getTodaywork();
     }, [calendar])
 
+    const onChange = (e) => {
+        const value = e.target.value;
+        setTodayworkModifyText(value);
+    }
 
     return (
         todayworkList === null
@@ -162,7 +197,7 @@ const Todaywork = () => {
                                                             deleteTodaywork(item.id)
                                                         }}>업무 삭제</span>
                                                         <span onClick={() => {
-                                                            setIsWorkSelect(false)
+                                                            modifyTodayworkClick(item.content, item.id)
                                                         }}>업무 수정</span>
                                                     </div>
                                                 }
@@ -261,6 +296,20 @@ const Todaywork = () => {
                             </li>
                         </ul>
                     </div>
+
+                    {/* 수정 팝업 */}
+                    {isTodayworkModify &&
+                        <div className="modifyTodaywork">
+                            <div className="box">
+                                <h3>오늘업무 수정</h3>
+                                <textarea type="text" name='password' onChange={onChange} value={modifyTodayworkText} />
+                                <div className="submit">
+                                    <button onClick={modifyTodaywork}>확인</button>
+                                </div>
+                            </div>
+                            <div onClick={() => { setIsTodayworkModify(false) }} className="bg on"></div>
+                        </div>
+                    }
                 </Style.Container>
             </>
     );

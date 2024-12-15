@@ -34,6 +34,17 @@ const deleteTodaywork = async (data) => {
     }
 }
 
-const todayworkApi = { createTodaywork, getTodaywork, deleteTodaywork };
+// 오늘업무 수정
+const modifyTodaywork = async (data) => {
+    try {
+        const res = await axios.post("/modifyTodaywork", data);
+
+        return res.data;
+    } catch (error) {
+        handleApiError(error);
+    }
+}
+
+const todayworkApi = { createTodaywork, getTodaywork, deleteTodaywork, modifyTodaywork };
 
 export default todayworkApi;
