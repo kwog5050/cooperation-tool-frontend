@@ -17,6 +17,8 @@ import Coin from 'pages/coin/Coin';
 import Challenge from 'pages/challenge/Challenge';
 import Party from 'pages/party/Party';
 
+import userApi from 'apis/userApi';
+
 const Cooperation = () => {
     const nav = useNavigate();
     const loaction = useLocation();
@@ -27,6 +29,26 @@ const Cooperation = () => {
     const mainWidth = useElementWidth(mainRef);
     const containerSizeDispatch = useDispatch();
     const sideMenuContainerDispatch = useDispatch();
+    const [userInfo, setUserInfo] = useState(null);
+
+    const getUser = async () => {
+        const res = await userApi.getUser({
+            email: sessionStorage.getItem("email"),
+        })
+
+        if (res.result === "success") {
+            setUserInfo(res.data);
+        } else {
+            alert("유저 정보 조회 에러 로그아웃됩니다.");
+            sessionStorage.removeItem("loginToken");
+            sessionStorage.removeItem("email");
+            nav("/")
+        }
+    }
+
+    useEffect(() => {
+        getUser();
+    }, [])
 
     // 메인컨테이너 크기 저장
     // 사이드메뉴 온오프 or 크기 마다 반응형할려고 만듬
@@ -46,13 +68,14 @@ const Cooperation = () => {
     }, [nav])
 
     return (
+        userInfo !== null &&
         <>
-            <Header />
+            <Header userInfo={userInfo} />
 
             <Main is_side={`${sideMenuContainer}`} side={sideMenuWidth} is_home={`${isHome}`}>
                 <main ref={mainRef}>
                     <Routes>
-                        <Route path='/' element={<Home />}></Route>
+                        <Route path='/' element={<Home userInfo={userInfo} />}></Route>
                         <Route path='/todaywork' element={<Todaywork />}></Route>
                         <Route path='/live' element={<Live />}></Route>
                         <Route path='/coin' element={<Coin />}></Route>

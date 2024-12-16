@@ -11,6 +11,7 @@ import Calendar from 'components/calendar/Calendar';
 import { cooperationImage } from 'assets/images/imageConfig';
 
 import * as Style from '../style';
+
 import todayworkApi from 'apis/todaywork';
 
 const SideMenu = ({ getTodaywork, calendar, setCalendar }) => {

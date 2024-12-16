@@ -23,6 +23,7 @@ const emailCheck = async (data) => {
     }
 }
 
+// 회원가입
 const createUser = async (data) => {
     try {
         const res = await axios.post("/createUser", data);
@@ -66,6 +67,18 @@ const modifyPassword = async (data) => {
     }
 }
 
-const userApi = { invitationCodeCheck, emailCheck, createUser, login, tokenCheck, modifyPassword };
+// 유저 정보 조회
+const getUser = async (data) => {
+    try {
+        const res = await axios.post("/getUser", data);
+
+        console.log(res.data);
+
+        return res.data;
+    } catch (error) {
+        handleApiError(error)
+    }
+}
+const userApi = { invitationCodeCheck, emailCheck, createUser, login, tokenCheck, modifyPassword, getUser };
 
 export default userApi;

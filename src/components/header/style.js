@@ -450,12 +450,17 @@ export const Notification = styled(Popup)`
 `
 
 export const Profile = styled(Popup)`
-    width: 46rem;
+    width: 36rem;
     right: 0;
     > div{
         border-radius: 10px;
         background-color: #fff;
         padding: 2rem;
+        >.flexBox{
+            align-items: start;
+            flex-direction: column;
+            gap: 15px;
+        }
         .userBox{
             display: flex;
             align-items: center;
@@ -495,7 +500,7 @@ export const Profile = styled(Popup)`
             .name{
                 p{
                     font-weight: 500;
-                    font-size: 1.7rem;
+                    font-size: 2rem;
                     margin-bottom: 0.4rem;
                 }
                 span{
@@ -507,7 +512,7 @@ export const Profile = styled(Popup)`
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
-            width: 15.6rem;
+            width: 100%;
             button{
                 display: flex;
                 align-items: center;
@@ -518,37 +523,6 @@ export const Profile = styled(Popup)`
                 cursor: pointer;
                 span{
                     font-size: 1.3rem;
-                }
-            }
-        }
-        .userInfo{
-            margin-top: 2rem;
-            ol{
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                border: 1px solid #ebebeb;
-                border-radius: 10px;
-                li{
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    padding: 0 2rem;
-                    height: 4.6rem;
-                    &:not(:nth-child(3),:nth-child(4)){
-                        border-bottom: 1px solid #ebebeb;
-                    }
-                    span{
-                        color: #555;
-                    }
-                    b{
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        gap: 0.5rem;
-                        img{
-                            width: 20px;
-                        }
-                    }
                 }
             }
         }
@@ -575,17 +549,6 @@ export const Profile = styled(Popup)`
                     button{
                         span{
                             font-size: 1.6rem;
-                        }
-                    }
-                }
-            }
-            .userInfo{
-                ol{
-                    grid-template-columns: 1fr;
-                    li{
-                        height: 5rem;
-                        &:not(:last-child){
-                            border-bottom: 1px solid #ebebeb;
                         }
                     }
                 }

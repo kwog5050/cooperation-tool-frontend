@@ -9,7 +9,9 @@ import * as Style from "./style";
 
 import { cooperationImage } from 'assets/images/imageConfig';
 
-const Header = () => {
+import userApi from 'apis/userApi';
+
+const Header = ({ userInfo }) => {
     const nav = useNavigate();
     const [isNote, setIsNote] = useState(false);
     const [isNotification, setIsNotification] = useState(false);
@@ -266,7 +268,7 @@ const Header = () => {
                         <li>
                             <div className="profile" onClick={() => { openPopup("프로필") }}>
                                 <img src={cooperationImage.profile} alt="" />
-                                <span>홍길동님</span>
+                                <span>{userInfo[0]?.name}님</span>
                                 <img className='arrow' src={cooperationImage.downArrow} alt="" />
                             </div>
 
@@ -284,7 +286,7 @@ const Header = () => {
                                             </div>
 
                                             <div className="name">
-                                                <p>홍길동님, 안녕하세요!</p>
+                                                <p>{userInfo[0]?.name}님, 안녕하세요!</p>
                                                 <span>리워디</span>
                                             </div>
                                         </div>
@@ -299,37 +301,6 @@ const Header = () => {
                                                 <img src={cooperationImage.logout} alt="로그아웃 버튼" />
                                             </button>
                                         </div>
-                                    </div>
-
-                                    <div className="userInfo">
-                                        <ol>
-                                            <li>
-                                                <span>공용코인</span>
-                                                <b>
-                                                    20,304
-                                                    <img src={cooperationImage.coin} alt="공용 코인" />
-                                                </b>
-                                            </li>
-                                            <li>
-                                                <span>내 코인</span>
-                                                <b>
-                                                    3,500
-                                                    <img src={cooperationImage.coin} alt="내 코인" />
-                                                </b>
-                                            </li>
-                                            <li>
-                                                <span>역량</span>
-                                                <b>
-                                                    13점
-                                                </b>
-                                            </li>
-                                            <li>
-                                                <span>좋아요</span>
-                                                <b>
-                                                    0개
-                                                </b>
-                                            </li>
-                                        </ol>
                                     </div>
                                 </div>
                             </Style.Profile>

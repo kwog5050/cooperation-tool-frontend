@@ -11,7 +11,7 @@ import ProfilePopup from 'components/cooperationPopup/profile/ProfilePopup';
 
 import todayworkApi from 'apis/todaywork';
 
-const Home = () => {
+const Home = ({ userInfo }) => {
     const [isProfilePopup, setIsProfilePopup] = useState(false);
     const [isWork, setIsWork] = useState(false);
     const [isMeeting, setIsMeeting] = useState(false);
@@ -65,7 +65,9 @@ const Home = () => {
                     <div className="stat">
                         <div className="profile">
                             <div className="userBox">
-                                <p onClick={() => { setIsProfilePopup(true) }}>상태 메시지를 입력해주세요.</p>
+                                <p onClick={() => { setIsProfilePopup(true) }}>
+                                    {userInfo[0].status_message !== null ? userInfo[0].status_message : "상태 메시지를 입력해주세요."}
+                                </p>
 
                                 <div className="profileImage">
                                     <div className="imageBox">
@@ -77,7 +79,7 @@ const Home = () => {
                                 </div>
 
                                 <div className="name">
-                                    <p>홍길동님, 안녕하세요!</p>
+                                    <p>{userInfo[0]?.name}님, 안녕하세요!</p>
                                     <span>리워디</span>
                                 </div>
                             </div>
